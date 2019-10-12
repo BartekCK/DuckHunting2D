@@ -9,8 +9,9 @@ using namespace std;
 
 int main()
 {
-	Configuration *configuration = new Configuration();
-	configuration->showDisplay();
+	
+	Configuration *configuration = new Configuration(800, 600, 10, 10, "Hello world");
+	configuration->showWindow();
 	delete configuration;
 	return 0;
 }

@@ -3,15 +3,17 @@
 
 #include <iostream>
 #include <allegro5/allegro.h>
+#include "Window.h"
 
 class Configuration {
-
 private:
-	ALLEGRO_DISPLAY* display = NULL;
+	Window *window;
+	
 public:
-	Configuration();
+	Configuration(int screenWidth, int screenHeight, int windowPositionX, int windowPositionY, const char* gameTitle);
 	~Configuration();
 
-	void showDisplay();
+	void showWindow();
+
 };
 
