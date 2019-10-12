@@ -1,27 +1,40 @@
 #include "Configuration.h"
+#include "GameLoop.h"
 
 
-Configuration::Configuration(int screenWidth, int screenHeight, int windowPositionX, int windowPositionY, const char* gameTitle)
+Configuration::Configuration()
 {
+	//ALLEGRO INIT
 	if (!al_init()) {
 		fprintf(stderr, "Failed to initialize allegro!\n");
 		exit(0);
 	}
-	this->window = new Window(screenWidth, screenHeight, windowPositionX, windowPositionY, gameTitle);
-
+	al_init_image_addon();
+	al_install_keyboard();
 	
 }
 
 Configuration::~Configuration()
 {
-	al_rest(5.0);
-	delete this->window;
+	//delete this->window;
+	al_uninstall_system();
 	cout << "OBIEKT USUWANY" << endl;
 }
 
-void Configuration::showWindow()
+void Configuration::windowConfigure(int screenWidth,int screenHeight, const char *gameTitle, const char * backgroundBitmap)
 {
-	this->window->showWindow();
+	this->window = new Window(screenWidth, screenHeight, gameTitle);
+	this->window->setBackground(backgroundBitmap);
 
 }
+
+void Configuration::showScene()
+{
+	GameLoop *gameLoop = new GameLoop(window);
+	gameLoop->startLoop();
+
+	delete gameLoop;
+}
+
+
 

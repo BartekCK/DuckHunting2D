@@ -2,16 +2,19 @@
 //
 
 #include <iostream>
-
+#include <Windows.h>
 #include "Configuration.h"
+#include "Path.h"
 
 using namespace std;
 
 int main()
 {
-	
-	Configuration *configuration = new Configuration(800, 600, 10, 10, "Hello world");
-	configuration->showWindow();
+	Path path;
+	Configuration *configuration = new Configuration();
+	configuration->windowConfigure(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), "Duck hunting",path.BACKGROUND_MAIN_MENU);
+	configuration->showScene();
+
 	delete configuration;
 	return 0;
 }

@@ -2,26 +2,37 @@
 
 
 
-Window::Window(int screenWidth, int screenHeight, int windowPositionX, int windowPositionY, const char* gameTitle)
-	: screen_width(screenWidth), screen_height(screenHeight), windowPositionX(windowPositionX),
-	windowPositionY(windowPositionY), gameTitle(gameTitle){
+Window::Window(int screenWidth, int screenHeight, const char* gameTitle)
+	: screen_width(screenWidth), screen_height(screenHeight),gameTitle(gameTitle){
 
 	this->display = al_create_display(screenWidth, screenHeight);
 	if (!display) {
 		fprintf(stderr, "Failed to create display!\n");
 		exit(0);
 	}
+	al_set_new_display_flags(ALLEGRO_FULLSCREEN | ALLEGRO_MAXIMIZED);
+	al_set_window_title(this->display, gameTitle);
 }
 
 Window::~Window()
 {
 	al_destroy_display(this->display);
+	al_destroy_bitmap(this->background);
+}
+
+void Window::setBackground(const char* backgroundBitmap)
+{
+	background = al_create_bitmap(this->screen_width, this->screen_height);
+	background = al_load_bitmap(backgroundBitmap);
+	if (!background)
+	{
+		fprintf(stderr, "failed to load background bitmap!\n");
+		exit(0);
+	}
+	al_draw_bitmap(background, 0, 0, 0);
 }
 
 void Window::showWindow()
 {
-	al_set_window_position(this->display, windowPositionX, windowPositionY);
-	al_set_window_title(this->display,gameTitle);
-	al_clear_to_color(al_map_rgb(25, 60, 120));
 	al_flip_display();
 }

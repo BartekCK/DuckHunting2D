@@ -7,13 +7,14 @@
 
 class Configuration {
 private:
-	Window *window;
+	Window *window = NULL;
 	
 public:
-	Configuration(int screenWidth, int screenHeight, int windowPositionX, int windowPositionY, const char* gameTitle);
+	Configuration();
 	~Configuration();
 
-	void showWindow();
 
+	void windowConfigure(int screenWidth, int screenHeight, const char* gameTitle, const char* backgroundBitmap);
+	void showScene();
 };
 
