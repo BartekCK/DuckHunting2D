@@ -3,10 +3,17 @@
 MainMenuScene::MainMenuScene(int screenWidth, int screenHeight, const char* gameTitle)
 	:Scene(screenWidth, screenHeight, gameTitle)
 {
-	this->newGameButton = new Button((this->screen_width/2)-206, (this->screen_height / 2)-200, "images/buttons/buttonNewGame.png");
-	this->endGameButton = new Button((this->screen_width / 2)- 206, (this->screen_height / 2)+250- 200, "images/buttons/buttonEndGame.png");
-	newGameButton->setBackground();
-	endGameButton->setBackground();
+	this->newGameButton = new Button("images/buttons/buttonNewGame.png");
+	this->endGameButton = new Button("images/buttons/buttonEndGame.png");
+
+	newGameButton->setButtonImage();
+	endGameButton->setButtonImage();
+
+	newGameButton->setXposition((this->screen_width / 2) - (this->newGameButton->getButtonWidth()/2));
+	newGameButton->setYposition((this->screen_height / 2) -(this->newGameButton->getButtonHeight() / 2)-100);
+
+	endGameButton->setXposition((this->screen_width / 2) - (this->endGameButton->getButtonWidth() / 2));
+	endGameButton->setYposition((this->screen_height / 2) - (this->endGameButton->getButtonHeight() / 2)+100);
 	
 }
 

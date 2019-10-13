@@ -1,7 +1,7 @@
 #include "Button.h"
 
-Button::Button(int xPosition, int yPosition, const char* backgroundBitmap)
-	: xPosition(xPosition), yPosition(yPosition), backgroundBitmap(backgroundBitmap)
+Button::Button(const char* backgroundBitmap)
+	: backgroundBitmap(backgroundBitmap)
 {
 }
 
@@ -13,12 +13,12 @@ Button::~Button()
 
 void Button::showButton()
 {
-	al_draw_bitmap(buttonImage, this->xPosition, this->yPosition, 0);
+	al_draw_bitmap(this->buttonImage, this->xPosition, this->yPosition, 0);
 }
 
-void Button::setBackground()
+void Button::setButtonImage()
 {
-	buttonImage = al_load_bitmap(this->backgroundBitmap);
+	this->buttonImage = al_load_bitmap(this->backgroundBitmap);
 	if (!buttonImage)
 	{
 		fprintf(stderr, "failed to load background bitmap!\n");
@@ -35,4 +35,14 @@ double Button::getButtonWidth()
 double Button::getButtonHeight()
 {
 	return al_get_bitmap_height(this->buttonImage);
+}
+
+void Button::setXposition(int x)
+{
+	this->xPosition = x;
+}
+
+void Button::setYposition(int y)
+{
+	this->yPosition = y;
 }
