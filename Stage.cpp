@@ -1,6 +1,4 @@
 #include "Stage.h"
-#include "GameLoop.h"
-
 
 Stage::Stage()
 {
@@ -16,24 +14,23 @@ Stage::Stage()
 
 Stage::~Stage()
 {
-	//delete this->window;
+	
+	delete gameLoop;
 	al_uninstall_system();
 	cout << "OBIEKT USUWANY" << endl;
 }
 
-void Stage::windowConfigure(int screenWidth,int screenHeight, const char *gameTitle, const char * backgroundBitmap)
+void Stage::setScene(int screenWidth,int screenHeight, const char *gameTitle, const char * backgroundBitmap)
 {
 	this->scene = new Scene(screenWidth, screenHeight, gameTitle);
 	this->scene->setBackground(backgroundBitmap);
-
 }
 
-void Stage::showScene()
+void Stage::show()
 {
-	GameLoop *gameLoop = new GameLoop(scene);
+	gameLoop = new GameLoop(scene);
 	gameLoop->startLoop();
 
-	delete gameLoop;
 }
 
 

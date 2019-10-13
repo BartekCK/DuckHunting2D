@@ -12,8 +12,8 @@ int main()
 {
 	Path path;
 	Stage *stage = new Stage();
-	stage->windowConfigure(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), "Duck hunting",path.BACKGROUND_MAIN_MENU);
-	stage->showScene();
+	stage->setScene(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), "Duck hunting",path.BACKGROUND_MAIN_MENU);
+	stage->show();
 
 	delete stage;
 	return 0;
