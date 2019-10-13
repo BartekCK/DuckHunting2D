@@ -14,7 +14,6 @@ int main()
 	Path path;
 	Stage *stage = new Stage();
 	Scene* scene = new MainMenuScene(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), "Duck hunting");
-	scene->createBackground();
 	scene->setBackground(path.BACKGROUND_MAIN_MENU);
 
 	stage->setScene(scene);

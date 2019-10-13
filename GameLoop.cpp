@@ -52,7 +52,7 @@ void GameLoop::startLoop()
 			if (events.mouse.button & 1) {
 				x = events.mouse.x;
 				y = events.mouse.y;
-				scene->whereMouseClick(x, y);
+				
 			}
 			
 		}

@@ -7,14 +7,11 @@ MainMenuScene::MainMenuScene(int screenWidth, int screenHeight, const char* game
 	this->newGameButton = new Button(path.BUTTON_NEW_GAME);
 	this->endGameButton = new Button(path.BUTTON_END_GAME);
 
-	newGameButton->setButtonImage();
-	endGameButton->setButtonImage();
+	this->newGameButton->setXposition((this->screen_width / 2) - (this->newGameButton->getButtonWidth()/2));
+	this->newGameButton->setYposition((this->screen_height / 2) -(this->newGameButton->getButtonHeight() / 2)-100);
 
-	newGameButton->setXposition((this->screen_width / 2) - (this->newGameButton->getButtonWidth()/2));
-	newGameButton->setYposition((this->screen_height / 2) -(this->newGameButton->getButtonHeight() / 2)-100);
-
-	endGameButton->setXposition((this->screen_width / 2) - (this->endGameButton->getButtonWidth() / 2));
-	endGameButton->setYposition((this->screen_height / 2) - (this->endGameButton->getButtonHeight() / 2)+100);
+	this->endGameButton->setXposition((this->screen_width / 2) - (this->endGameButton->getButtonWidth() / 2));
+	this->endGameButton->setYposition((this->screen_height / 2) - (this->endGameButton->getButtonHeight() / 2)+100);
 	
 }
 
@@ -28,20 +25,8 @@ MainMenuScene::~MainMenuScene()
 void MainMenuScene::showWindow()
 {
 
-	newGameButton->showButton();
-	endGameButton->showButton();
+	this->newGameButton->showButton();
+	this->endGameButton->showButton();
 	al_flip_display();
 }
-
-void MainMenuScene::createBackground()
-{
-	background = al_create_bitmap(this->screen_width, this->screen_height);
-
-}
-
-void MainMenuScene::whereMouseClick(int x, int y)
-{
-	newGameButton->buttonClick(x, y);
-}
-
 

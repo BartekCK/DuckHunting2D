@@ -22,9 +22,7 @@ public:
 	virtual ~Scene();
 
 	virtual void showWindow()=0;
-	virtual void whereMouseClick(int x, int y)=0;
     void setBackground(const char* backgroundBitmap);
-    virtual void createBackground()=0;
 
 };
 

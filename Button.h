@@ -17,7 +17,6 @@ public:
 	~Button();
 
 	void showButton();
-	void setButtonImage();
 
 	int getButtonWidth();
 	int getButtonHeight();

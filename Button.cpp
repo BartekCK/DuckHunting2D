@@ -3,6 +3,12 @@
 Button::Button(const char* backgroundBitmap)
 	: backgroundBitmap(backgroundBitmap)
 {
+	this->buttonImage = al_load_bitmap(this->backgroundBitmap);
+	if (!buttonImage)
+	{
+		fprintf(stderr, "failed to load background bitmap!\n");
+		exit(0);
+	}
 }
 
 
@@ -16,16 +22,6 @@ void Button::showButton()
 	al_draw_bitmap(this->buttonImage, this->xPosition, this->yPosition, 0);
 }
 
-void Button::setButtonImage()
-{
-	this->buttonImage = al_load_bitmap(this->backgroundBitmap);
-	if (!buttonImage)
-	{
-		fprintf(stderr, "failed to load background bitmap!\n");
-		exit(0);
-	}
-	
-}
 
 int Button::getButtonWidth()
 {

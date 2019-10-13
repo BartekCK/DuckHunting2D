@@ -22,11 +22,10 @@ Scene::~Scene()
 
 }
 
-
-
 void Scene::setBackground(const char* backgroundBitmap)
 {
-	background = al_load_bitmap(backgroundBitmap);
+	this->background = al_create_bitmap(this->screen_width, this->screen_height);
+	this->background = al_load_bitmap(backgroundBitmap);
 	if (!background)
 	{
 		fprintf(stderr, "failed to load background bitmap!\n");
