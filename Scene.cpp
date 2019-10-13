@@ -22,6 +22,8 @@ Scene::~Scene()
 
 }
 
+
+
 void Scene::setBackground(const char* backgroundBitmap)
 {
 	background = al_load_bitmap(backgroundBitmap);

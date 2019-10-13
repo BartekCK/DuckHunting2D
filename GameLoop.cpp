@@ -28,24 +28,34 @@ void GameLoop::startLoop()
 
 	al_register_event_source(this->event_queue, al_get_timer_event_source(this->timer));
 	al_register_event_source(event_queue, al_get_keyboard_event_source());
-
-
+	al_register_event_source(event_queue, al_get_mouse_event_source());
 	al_start_timer(this->timer);
+
+	int x=0, y=0;
+
 	while (!this->done){
 		
-
 		ALLEGRO_EVENT events;
 		al_wait_for_event(event_queue, &events);
 		al_get_keyboard_state(&keyState);
 		
-
 		if (events.type == ALLEGRO_EVENT_TIMER) {
 
 			if (al_key_down(&keyState, ALLEGRO_KEY_ESCAPE)) {
 				this->done = true;
 			}
-		}				 
+		}			
 
+
+		
+		if (events.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) {
+			if (events.mouse.button & 1) {
+				x = events.mouse.x;
+				y = events.mouse.y;
+				scene->whereMouseClick(x, y);
+			}
+			
+		}
 
 		scene->showWindow();	
 	}

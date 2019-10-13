@@ -27,6 +27,7 @@ MainMenuScene::~MainMenuScene()
 
 void MainMenuScene::showWindow()
 {
+
 	newGameButton->showButton();
 	endGameButton->showButton();
 	al_flip_display();
@@ -37,3 +38,10 @@ void MainMenuScene::createBackground()
 	background = al_create_bitmap(this->screen_width, this->screen_height);
 
 }
+
+void MainMenuScene::whereMouseClick(int x, int y)
+{
+	newGameButton->buttonClick(x, y);
+}
+
+

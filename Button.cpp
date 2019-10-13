@@ -27,12 +27,12 @@ void Button::setButtonImage()
 	
 }
 
-double Button::getButtonWidth()
+int Button::getButtonWidth()
 {
 	return al_get_bitmap_width(this->buttonImage);
 }
 
-double Button::getButtonHeight()
+int Button::getButtonHeight()
 {
 	return al_get_bitmap_height(this->buttonImage);
 }
@@ -45,4 +45,16 @@ void Button::setXposition(int x)
 void Button::setYposition(int y)
 {
 	this->yPosition = y;
+}
+
+bool Button::buttonClick(int xClick, int yClick)
+{
+	
+	if (xPosition + getButtonWidth() > xClick && xPosition - getButtonWidth()< xClick
+		&& yPosition + getButtonHeight() > yClick && yPosition - getButtonHeight() < yClick) {
+		std::cout << "CLICK"<<std::endl;
+		return true;
+	}
+	std::cout << "NO CLICK" << std::endl;
+	return false;
 }

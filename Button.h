@@ -19,10 +19,12 @@ public:
 	void showButton();
 	void setButtonImage();
 
-	double getButtonWidth();
-	double getButtonHeight();
+	int getButtonWidth();
+	int getButtonHeight();
 
 	void setXposition(int x);
 	void setYposition(int y);
+
+	bool buttonClick(int x, int y);
 };
 

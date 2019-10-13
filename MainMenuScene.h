@@ -15,5 +15,7 @@ public:
 
 	void showWindow();
 	void createBackground () override;
+	void whereMouseClick(int x, int y);
+
 };
 
