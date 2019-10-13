@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <Windows.h>
-#include "Configuration.h"
+#include "Stage.h"
 #include "Path.h"
 
 using namespace std;
@@ -11,11 +11,11 @@ using namespace std;
 int main()
 {
 	Path path;
-	Configuration *configuration = new Configuration();
-	configuration->windowConfigure(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), "Duck hunting",path.BACKGROUND_MAIN_MENU);
-	configuration->showScene();
+	Stage *stage = new Stage();
+	stage->windowConfigure(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), "Duck hunting",path.BACKGROUND_MAIN_MENU);
+	stage->showScene();
 
-	delete configuration;
+	delete stage;
 	return 0;
 }
 

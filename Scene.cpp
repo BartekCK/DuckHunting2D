@@ -1,8 +1,8 @@
-#include "Window.h"
+#include "Scene.h"
 
 
 
-Window::Window(int screenWidth, int screenHeight, const char* gameTitle)
+Scene::Scene(int screenWidth, int screenHeight, const char* gameTitle)
 	: screen_width(screenWidth), screen_height(screenHeight),gameTitle(gameTitle){
 
 	this->display = al_create_display(screenWidth, screenHeight);
@@ -14,13 +14,13 @@ Window::Window(int screenWidth, int screenHeight, const char* gameTitle)
 	al_set_window_title(this->display, gameTitle);
 }
 
-Window::~Window()
+Scene::~Scene()
 {
 	al_destroy_display(this->display);
 	al_destroy_bitmap(this->background);
 }
 
-void Window::setBackground(const char* backgroundBitmap)
+void Scene::setBackground(const char* backgroundBitmap)
 {
 	background = al_create_bitmap(this->screen_width, this->screen_height);
 	background = al_load_bitmap(backgroundBitmap);
@@ -32,7 +32,7 @@ void Window::setBackground(const char* backgroundBitmap)
 	al_draw_bitmap(background, 0, 0, 0);
 }
 
-void Window::showWindow()
+void Scene::showWindow()
 {
 	al_flip_display();
 }

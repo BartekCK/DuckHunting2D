@@ -1,11 +1,11 @@
 #include "GameLoop.h"
 
-GameLoop::GameLoop(Window *newWindow)
+GameLoop::GameLoop(Scene *newScene)
 {
 	try {
-		if (newWindow == NULL)
+		if (newScene == NULL)
 			throw "Window has not been initialized";
-		this->window = newWindow;
+		this->scene = newScene;
 		this->timer = al_create_timer(1.0 / FPS);
 		this->event_queue = al_create_event_queue();
 	}
@@ -17,7 +17,7 @@ GameLoop::GameLoop(Window *newWindow)
 
 GameLoop::~GameLoop()
 {
-	delete this->window;
+	delete this->scene;
 
 	al_destroy_timer(this ->timer);
 	al_destroy_event_queue(this->event_queue);
@@ -46,7 +46,7 @@ void GameLoop::startLoop()
 			}
 		}				 
 
-		window->showWindow();	
+		scene->showWindow();	
 	}
 
 

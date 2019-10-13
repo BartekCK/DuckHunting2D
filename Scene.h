@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class Window
+class Scene
 {
 private:
 	ALLEGRO_DISPLAY* display = NULL;
@@ -17,8 +17,8 @@ private:
 	const char* gameTitle;
 
 public:
-	Window(int screenWidth, int screenHeight, const char* gameTitle);
-	~Window();
+	Scene(int screenWidth, int screenHeight, const char* gameTitle);
+	~Scene();
 
 	void showWindow();
 	void setBackground(const char* backgroundBitmap);

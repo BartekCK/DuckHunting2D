@@ -3,18 +3,18 @@
 
 #include <iostream>
 #include <allegro5/allegro.h>
-#include "Window.h"
+#include "Scene.h"
 
-class Configuration {
+class Stage {
 private:
-	Window *window = NULL;
+	Scene *scene = NULL;
 	
 public:
-	Configuration();
-	~Configuration();
+	Stage();
+	~Stage();
 
 
 	void windowConfigure(int screenWidth, int screenHeight, const char* gameTitle, const char* backgroundBitmap);
-	void showScene();
+	void show();
 };
 

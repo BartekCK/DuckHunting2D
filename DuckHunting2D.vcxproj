@@ -153,19 +153,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Configuration.cpp" />
+    <ClCompile Include="Stage.cpp" />
     <ClCompile Include="DuckHunting2D.cpp" />
     <ClCompile Include="GameLoop.cpp" />
-    <ClCompile Include="Window.cpp" />
+    <ClCompile Include="Scene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Configuration.h" />
     <ClInclude Include="GameLoop.h" />
     <ClInclude Include="Path.h" />
-    <ClInclude Include="Window.h" />
+    <ClInclude Include="Stage.h" />
+    <ClInclude Include="Scene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
