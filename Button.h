@@ -5,7 +5,6 @@
 #include <allegro5/allegro_image.h>
 class Button
 {
-	ALLEGRO_DISPLAY* display = NULL;
 	ALLEGRO_BITMAP* buttonImage = NULL;
 	int xPosition;
 	int yPosition;
@@ -17,5 +16,7 @@ public:
 
 	void showButton();
 	void setBackground();
+	double getButtonWidth();
+	double getButtonHeight();
 };
 

@@ -9,19 +9,21 @@ using namespace std;
 
 class Scene
 {
-private:
+protected:
 	ALLEGRO_DISPLAY* display = NULL;
 	ALLEGRO_BITMAP* background = NULL;
+	const char* gameTitle;
 	int screen_width;
 	int screen_height;
-	const char* gameTitle;
+	
 
 public:
 	Scene(int screenWidth, int screenHeight, const char* gameTitle);
-	~Scene();
+	virtual ~Scene();
 
-	void showWindow();
-	void setBackground(const char* backgroundBitmap);
+	virtual void showWindow()=0;
+    void setBackground(const char* backgroundBitmap);
+    virtual void createBackground()=0;
 
 };
 

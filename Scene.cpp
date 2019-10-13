@@ -18,11 +18,12 @@ Scene::~Scene()
 {
 	al_destroy_display(this->display);
 	al_destroy_bitmap(this->background);
+	cout << "DESKTRUKTOR ZE SCENE" << endl;
+
 }
 
 void Scene::setBackground(const char* backgroundBitmap)
 {
-	background = al_create_bitmap(this->screen_width, this->screen_height);
 	background = al_load_bitmap(backgroundBitmap);
 	if (!background)
 	{
@@ -32,7 +33,3 @@ void Scene::setBackground(const char* backgroundBitmap)
 	al_draw_bitmap(background, 0, 0, 0);
 }
 
-void Scene::showWindow()
-{
-	al_flip_display();
-}

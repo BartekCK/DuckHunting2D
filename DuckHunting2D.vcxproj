@@ -154,6 +154,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="MainMenuScene.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="DuckHunting2D.cpp" />
     <ClCompile Include="GameLoop.cpp" />
@@ -165,6 +166,7 @@
   <ItemGroup>
     <ClInclude Include="Button.h" />
     <ClInclude Include="GameLoop.h" />
+    <ClInclude Include="MainMenuScene.h" />
     <ClInclude Include="Path.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="Scene.h" />

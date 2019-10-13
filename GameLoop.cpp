@@ -29,8 +29,6 @@ void GameLoop::startLoop()
 	al_register_event_source(this->event_queue, al_get_timer_event_source(this->timer));
 	al_register_event_source(event_queue, al_get_keyboard_event_source());
 
-	Button* button = new Button(100, 100, "images/buttons/buttonNewGame.png");
-	button->setBackground();
 
 	al_start_timer(this->timer);
 	while (!this->done){
@@ -50,8 +48,6 @@ void GameLoop::startLoop()
 
 
 		scene->showWindow();	
-		button->showButton();
 	}
 
-	delete button;
 }

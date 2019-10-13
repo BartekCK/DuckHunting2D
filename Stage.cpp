@@ -20,10 +20,10 @@ Stage::~Stage()
 	cout << "OBIEKT USUWANY" << endl;
 }
 
-void Stage::setScene(int screenWidth,int screenHeight, const char *gameTitle, const char * backgroundBitmap)
+void Stage::setScene(Scene *scene)
 {
-	this->scene = new Scene(screenWidth, screenHeight, gameTitle);
-	this->scene->setBackground(backgroundBitmap);
+	this->scene = scene;
+	
 }
 
 void Stage::show()

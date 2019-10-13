@@ -16,7 +16,7 @@ public:
 	~Stage();
 
 
-	void setScene(int screenWidth, int screenHeight, const char* gameTitle, const char* backgroundBitmap);
+	void setScene(Scene *scene);
 	void show();
 };
 

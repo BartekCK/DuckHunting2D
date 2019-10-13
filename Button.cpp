@@ -26,3 +26,13 @@ void Button::setBackground()
 	}
 	
 }
+
+double Button::getButtonWidth()
+{
+	return al_get_bitmap_width(this->buttonImage);
+}
+
+double Button::getButtonHeight()
+{
+	return al_get_bitmap_height(this->buttonImage);
+}

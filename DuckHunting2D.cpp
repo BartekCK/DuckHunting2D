@@ -5,6 +5,7 @@
 #include <Windows.h>
 #include "Stage.h"
 #include "Path.h"
+#include "MainMenuScene.h"
 
 using namespace std;
 
@@ -12,7 +13,11 @@ int main()
 {
 	Path path;
 	Stage *stage = new Stage();
-	stage->setScene(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), "Duck hunting",path.BACKGROUND_MAIN_MENU);
+	Scene* scene = new MainMenuScene(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), "Duck hunting");
+	scene->createBackground();
+	scene->setBackground(path.BACKGROUND_MAIN_MENU);
+
+	stage->setScene(scene);
 	stage->show();
 
 	delete stage;
