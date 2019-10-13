@@ -3,8 +3,9 @@
 MainMenuScene::MainMenuScene(int screenWidth, int screenHeight, const char* gameTitle)
 	:Scene(screenWidth, screenHeight, gameTitle)
 {
-	this->newGameButton = new Button("images/buttons/buttonNewGame.png");
-	this->endGameButton = new Button("images/buttons/buttonEndGame.png");
+	Path path;
+	this->newGameButton = new Button(path.BUTTON_NEW_GAME);
+	this->endGameButton = new Button(path.BUTTON_END_GAME);
 
 	newGameButton->setButtonImage();
 	endGameButton->setButtonImage();
