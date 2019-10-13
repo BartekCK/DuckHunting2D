@@ -18,9 +18,10 @@ GameLoop::GameLoop(Scene *newScene)
 GameLoop::~GameLoop()
 {
 	delete this->scene;
-
 	al_destroy_timer(this ->timer);
 	al_destroy_event_queue(this->event_queue);
+	cout << "DESKTRUKTOR Z GAME_LOOP" << endl;
+
 }
 
 void GameLoop::startLoop()
