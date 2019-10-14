@@ -15,9 +15,9 @@ Stage::Stage()
 Stage::~Stage()
 {
 	
-	delete gameLoop;
+	delete scene;
 	al_uninstall_system();
-	cout << "OBIEKT USUWANY" << endl;
+	cout << "DESKTRUKTOR ZE STAGE" << endl;
 }
 
 void Stage::setScene(Scene *scene)
@@ -28,8 +28,7 @@ void Stage::setScene(Scene *scene)
 
 void Stage::show()
 {
-	gameLoop = new GameLoop(scene);
-	gameLoop->startLoop();
+	this->scene->showWindow();
 
 }
 

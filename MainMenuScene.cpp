@@ -24,9 +24,38 @@ MainMenuScene::~MainMenuScene()
 
 void MainMenuScene::showWindow()
 {
+	int x = 0, y = 0;
 
-	this->newGameButton->showButton();
-	this->endGameButton->showButton();
-	al_flip_display();
+	while (!this->done) {
+
+		ALLEGRO_EVENT events;
+		al_wait_for_event(event_queue, &events);
+		al_get_keyboard_state(&keyState);
+
+		if (events.type == ALLEGRO_EVENT_TIMER) {
+
+			if (al_key_down(&keyState, ALLEGRO_KEY_ESCAPE)) {
+				this->done = true;
+			}
+		}
+
+		if (events.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) {
+			if (events.mouse.button & 1) {
+				x = events.mouse.x;
+				y = events.mouse.y;
+				this->newGameButton->buttonClick(x, y);
+				//this->endGameButton->buttonClick(x, y);
+			}
+
+		}
+
+		this->newGameButton->showButton();
+		this->endGameButton->showButton();
+		al_flip_display();
+
+	}
+
+
+	
 }
 

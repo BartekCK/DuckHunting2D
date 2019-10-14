@@ -15,6 +15,7 @@ Button::Button(const char* backgroundBitmap)
 Button::~Button()
 {
 	al_destroy_bitmap(this->buttonImage);
+	std::cout << "DESTRUKTOR Z BUTTON" << std::endl;
 }
 
 void Button::showButton()
@@ -46,11 +47,20 @@ void Button::setYposition(int y)
 bool Button::buttonClick(int xClick, int yClick)
 {
 	
-	if (xPosition + getButtonWidth() > xClick && xPosition - getButtonWidth()< xClick
-		&& yPosition + getButtonHeight() > yClick && yPosition - getButtonHeight() < yClick) {
-		std::cout << "CLICK"<<std::endl;
+	std::cout << xPosition - (getButtonWidth() / 2) << std::endl;
+	std::cout << xPosition + (getButtonWidth() / 2) << std::endl;
+	std::cout << yPosition + (getButtonHeight() / 2) << std::endl;
+	std::cout << yPosition - (getButtonHeight() / 2) << std::endl << std::endl;
+	
+
+
+	std::cout << xClick << std::endl;
+	std::cout << yClick << std::endl << std::endl;
+	
+
+	if (xPosition - (getButtonWidth()/2) < xClick && xPosition + (getButtonWidth() / 2) > xClick
+		&& yPosition - (getButtonHeight() / 2) < yClick && yPosition + (getButtonHeight()/2) > yClick) {
 		return true;
 	}
-	std::cout << "NO CLICK" << std::endl;
 	return false;
 }
