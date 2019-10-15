@@ -43,8 +43,12 @@ void MainMenuScene::showWindow()
 			if (events.mouse.button & 1) {
 				x = events.mouse.x;
 				y = events.mouse.y;
-				this->newGameButton->buttonClick(x, y);
-				//this->endGameButton->buttonClick(x, y);
+				if (this->newGameButton->buttonClick(x, y)) {
+					cout << "START NEW GAME" << endl;
+				}
+				if (this->endGameButton->buttonClick(x, y)) {
+					break;
+				}
 			}
 
 		}

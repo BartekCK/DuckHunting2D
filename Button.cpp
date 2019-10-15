@@ -9,6 +9,9 @@ Button::Button(const char* backgroundBitmap)
 		fprintf(stderr, "failed to load background bitmap!\n");
 		exit(0);
 	}
+
+	this->width = al_get_bitmap_width(this->buttonImage);
+	this->height = al_get_bitmap_height(this->buttonImage);
 }
 
 
@@ -26,12 +29,12 @@ void Button::showButton()
 
 int Button::getButtonWidth()
 {
-	return al_get_bitmap_width(this->buttonImage);
+	return this->width;
 }
 
 int Button::getButtonHeight()
 {
-	return al_get_bitmap_height(this->buttonImage);
+	return this->height;
 }
 
 void Button::setXposition(int x)
@@ -46,20 +49,8 @@ void Button::setYposition(int y)
 
 bool Button::buttonClick(int xClick, int yClick)
 {
-	
-	std::cout << xPosition - (getButtonWidth() / 2) << std::endl;
-	std::cout << xPosition + (getButtonWidth() / 2) << std::endl;
-	std::cout << yPosition + (getButtonHeight() / 2) << std::endl;
-	std::cout << yPosition - (getButtonHeight() / 2) << std::endl << std::endl;
-	
-
-
-	std::cout << xClick << std::endl;
-	std::cout << yClick << std::endl << std::endl;
-	
-
-	if (xPosition - (getButtonWidth()/2) < xClick && xPosition + (getButtonWidth() / 2) > xClick
-		&& yPosition - (getButtonHeight() / 2) < yClick && yPosition + (getButtonHeight()/2) > yClick) {
+	if (xClick > xPosition&& xClick < xPosition + width &&
+		yClick > yPosition && yClick < yPosition + height) {
 		return true;
 	}
 	return false;
