@@ -30,5 +30,7 @@ public:
 	virtual void showWindow()=0;
     void setBackground(const char* backgroundBitmap);
 
+private:
+	ALLEGRO_BITMAP* load_bitmap_at_size(const char* filename, int w, int h);
 };
 
