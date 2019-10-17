@@ -3,10 +3,13 @@
 GameScene::GameScene(int screenWidth, int screenHeight, const char* gameTitle, Stage* stage)
 	:Scene(screenWidth, screenHeight, gameTitle), stage(stage)
 {
+	Path path;
+	duck = new Duck(path.NODE_DUCK);
 }
 
 GameScene::~GameScene()
 {
+	delete duck;
 	cout << "DESTRUKTOR Z GAME_SCENE" << endl;
 }
 
@@ -35,6 +38,9 @@ void GameScene::showWindow()
 			this->stage->showMenu();
 			break;
 		}
+
+
+		duck->show();
 
 		al_flip_display();
 	}

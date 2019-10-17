@@ -7,11 +7,11 @@ MainMenuScene::MainMenuScene(int screenWidth, int screenHeight, const char* game
 	this->newGameButton = new Button(path.BUTTON_NEW_GAME);
 	this->endGameButton = new Button(path.BUTTON_END_GAME);
 
-	this->newGameButton->setXposition((this->screen_width / 2) - (this->newGameButton->getButtonWidth()/2));
-	this->newGameButton->setYposition((this->screen_height / 2) -(this->newGameButton->getButtonHeight() / 2)-100);
+	this->newGameButton->setXposition((this->screen_width / 2) - (this->newGameButton->getWidth()/2));
+	this->newGameButton->setYposition((this->screen_height / 2) -(this->newGameButton->getHeight() / 2)-100);
 
-	this->endGameButton->setXposition((this->screen_width / 2) - (this->endGameButton->getButtonWidth() / 2));
-	this->endGameButton->setYposition((this->screen_height / 2) - (this->endGameButton->getButtonHeight() / 2)+100);
+	this->endGameButton->setXposition((this->screen_width / 2) - (this->endGameButton->getWidth() / 2));
+	this->endGameButton->setYposition((this->screen_height / 2) - (this->endGameButton->getHeight() / 2)+100);
 	
 }
 
@@ -51,8 +51,8 @@ void MainMenuScene::showWindow()
 
 		}
 
-		this->newGameButton->showButton();
-		this->endGameButton->showButton();
+		this->newGameButton->show();
+		this->endGameButton->show();
 		al_flip_display();
 
 	}

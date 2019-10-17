@@ -154,8 +154,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Duck.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="MainMenuScene.cpp" />
+    <ClCompile Include="Node.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="DuckHunting2D.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -165,8 +167,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Duck.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="MainMenuScene.h" />
+    <ClInclude Include="Node.h" />
     <ClInclude Include="Path.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="Scene.h" />
