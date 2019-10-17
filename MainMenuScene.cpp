@@ -1,7 +1,7 @@
 #include "MainMenuScene.h"
 
-MainMenuScene::MainMenuScene(int screenWidth, int screenHeight, const char* gameTitle)
-	:Scene(screenWidth, screenHeight, gameTitle)
+MainMenuScene::MainMenuScene(int screenWidth, int screenHeight, const char* gameTitle,Stage * stage)
+	:Scene(screenWidth, screenHeight, gameTitle),stage(stage)
 {
 	Path path;
 	this->newGameButton = new Button(path.BUTTON_NEW_GAME);
@@ -24,6 +24,7 @@ MainMenuScene::~MainMenuScene()
 
 void MainMenuScene::showWindow()
 {
+	al_draw_bitmap(this->background, 0, 0, 0);
 	int x = 0, y = 0;
 
 	while (!this->done) {
@@ -45,6 +46,7 @@ void MainMenuScene::showWindow()
 				y = events.mouse.y;
 				if (this->newGameButton->buttonClick(x, y)) {
 					cout << "START NEW GAME" << endl;
+					this->stage->showGame();
 				}
 				if (this->endGameButton->buttonClick(x, y)) {
 					break;

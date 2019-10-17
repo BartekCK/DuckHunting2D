@@ -7,14 +7,17 @@
 
 class Stage {
 private:
-	Scene *scene = NULL;
+	Scene *menuScene = NULL;
+	Scene *gameScene = NULL;
 	
 public:
 	Stage();
 	~Stage();
 
 
-	void setScene(Scene *scene);
-	void show();
+	void setMenuScene(Scene *scene);
+	void setGameScene(Scene *scene);
+	void showMenu();
+	void showGame();
 };
 

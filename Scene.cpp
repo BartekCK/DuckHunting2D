@@ -44,7 +44,6 @@ void Scene::setBackground(const char* backgroundBitmap)
 		fprintf(stderr, "failed to load background bitmap!\n");
 		exit(0);
 	}
-	al_draw_bitmap(background, 0, 0, 0);
 }
 
 ALLEGRO_BITMAP* Scene::load_bitmap_at_size(const char* filename, int w, int h)

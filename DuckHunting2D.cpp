@@ -6,6 +6,7 @@
 #include "Stage.h"
 #include "Path.h"
 #include "MainMenuScene.h"
+#include "GameScene.h"
 
 using namespace std;
 
@@ -13,11 +14,16 @@ int main()
 {
 	Path path;
 	Stage *stage = new Stage();
-	Scene* scene = new MainMenuScene(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), "Duck hunting");
-	scene->setBackground(path.BACKGROUND_MAIN_MENU);
+	Scene* sceneMenu = new MainMenuScene(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), "Duck hunting", stage);
+	Scene* sceneGame = new GameScene(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), "Duck hunting", stage);
+	
+	sceneMenu->setBackground(path.BACKGROUND_MAIN_MENU);
+	sceneGame->setBackground(path.BACKGROUND_GAME);
 
-	stage->setScene(scene);
-	stage->show();
+	stage->setMenuScene(sceneMenu);
+	stage->setGameScene(sceneGame);
+
+	stage->showMenu();
 
 	delete stage;
 	return 0;

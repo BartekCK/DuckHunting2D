@@ -15,21 +15,34 @@ Stage::Stage()
 Stage::~Stage()
 {
 	
-	delete scene;
+	delete menuScene;
+	delete gameScene;
+
 	al_uninstall_system();
 	cout << "DESKTRUKTOR ZE STAGE" << endl;
 }
 
-void Stage::setScene(Scene *scene)
+void Stage::setMenuScene(Scene *scene)
 {
-	this->scene = scene;
+	this->menuScene = scene;
 	
 }
 
-void Stage::show()
+void Stage::setGameScene(Scene* scene)
 {
-	this->scene->showWindow();
+	this->gameScene = scene;
 
+}
+
+void Stage::showMenu()
+{
+	this->menuScene->showWindow();
+
+}
+
+void Stage::showGame()
+{
+	this->gameScene->showWindow();
 }
 
 
