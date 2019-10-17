@@ -5,8 +5,40 @@ GameScene::GameScene(int screenWidth, int screenHeight, const char* gameTitle, S
 {
 }
 
+GameScene::~GameScene()
+{
+	cout << "DESTRUKTOR Z GAME_SCENE" << endl;
+}
+
 void GameScene::showWindow()
 {
-	al_draw_bitmap(background, 0, 0, 0);
-	cout << "SCENA Z GRY" << endl;
+	al_draw_bitmap(this->background, 0, 0, 0);
+	bool test = false;
+
+	while (!this->done) {
+
+		ALLEGRO_EVENT events;
+		al_wait_for_event(event_queue, &events);
+	
+
+		if (events.type == ALLEGRO_EVENT_KEY_DOWN) {
+			switch (events.keyboard.keycode)
+			{
+				case ALLEGRO_KEY_ESCAPE:
+					test = true;
+			}
+		}
+
+		
+		if (test == true) {
+			test = false;
+			this->stage->showMenu();
+			break;
+		}
+
+		al_flip_display();
+	}
+
+
+	
 }

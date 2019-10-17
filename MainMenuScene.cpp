@@ -26,27 +26,23 @@ void MainMenuScene::showWindow()
 {
 	al_draw_bitmap(this->background, 0, 0, 0);
 	int x = 0, y = 0;
+	bool test = false;
 
 	while (!this->done) {
 
 		ALLEGRO_EVENT events;
 		al_wait_for_event(event_queue, &events);
-		al_get_keyboard_state(&keyState);
 
-		if (events.type == ALLEGRO_EVENT_TIMER) {
-
-			if (al_key_down(&keyState, ALLEGRO_KEY_ESCAPE)) {
-				this->done = true;
-			}
-		}
-
+		
 		if (events.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) {
 			if (events.mouse.button & 1) {
 				x = events.mouse.x;
 				y = events.mouse.y;
 				if (this->newGameButton->buttonClick(x, y)) {
 					cout << "START NEW GAME" << endl;
-					this->stage->showGame();
+					test = true;
+					break;
+					
 				}
 				if (this->endGameButton->buttonClick(x, y)) {
 					break;
@@ -60,8 +56,8 @@ void MainMenuScene::showWindow()
 		al_flip_display();
 
 	}
-
-
 	
+	if(test == true)
+		this->stage->showGame();
 }
 

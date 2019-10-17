@@ -9,6 +9,7 @@ class GameScene:public Scene
 
 public:
 	GameScene(int screenWidth, int screenHeight, const char* gameTitle, Stage* stage);
+	~GameScene();
 	void showWindow() override;
 
 
