@@ -25,7 +25,7 @@ void Scene::registerEvent()
 	al_register_event_source(this->event_queue, al_get_mouse_event_source());
 
 	//TIMER JEST PODEJRZANY !!!
-	timer = al_create_timer(1.0 / 60);
+	timer = al_create_timer(1.0 / FPS);
 	al_register_event_source(this->event_queue, al_get_timer_event_source(this->timer));
 }
 

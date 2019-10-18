@@ -38,3 +38,14 @@ void Node::setYposition(int y)
 {
 	this->yPosition = y;
 }
+
+int Node::getXposition()
+{
+	return xPosition;
+}
+
+int Node::getYposition()
+{
+	return yPosition;
+}
+

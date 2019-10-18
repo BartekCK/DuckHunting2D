@@ -28,7 +28,8 @@ public:
 
 	void setXposition(int x);
 	void setYposition(int y);
-
+	int getXposition();
+	int getYposition();
 	virtual void show() = 0;
 };
 
