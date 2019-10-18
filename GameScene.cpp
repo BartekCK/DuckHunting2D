@@ -17,6 +17,7 @@ GameScene::~GameScene()
 void GameScene::showWindow()
 {
 	registerEvent();
+	al_start_timer(this -> timer);
 	done = false;
 	bool move = true;
 	int x = 0, y = 0;
@@ -55,6 +56,8 @@ void GameScene::showWindow()
 		
 	}
 
+
+	al_stop_timer(this->timer);
 	deleteEvent();
 	this->stage->showMenu();
 }

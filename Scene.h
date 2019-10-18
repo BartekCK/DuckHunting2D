@@ -13,6 +13,7 @@ protected:
 	ALLEGRO_DISPLAY* display = NULL;
 	ALLEGRO_BITMAP* background = NULL;
 	ALLEGRO_EVENT_QUEUE* event_queue = NULL;
+	ALLEGRO_TIMER* timer = NULL;
 
 	const char* gameTitle;
 	int screen_width;

@@ -23,10 +23,15 @@ void Scene::registerEvent()
 
 	al_register_event_source(this->event_queue, al_get_keyboard_event_source());
 	al_register_event_source(this->event_queue, al_get_mouse_event_source());
+
+	//TIMER JEST PODEJRZANY !!!
+	timer = al_create_timer(1.0 / 60);
+	al_register_event_source(this->event_queue, al_get_timer_event_source(this->timer));
 }
 
 void Scene::deleteEvent()
 {
+	al_destroy_timer(timer);
 	al_destroy_event_queue(this->event_queue);
 }
 
