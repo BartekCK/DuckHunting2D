@@ -5,7 +5,7 @@ GameScene::GameScene(int screenWidth, int screenHeight, const char* gameTitle, S
 	:Scene(screenWidth, screenHeight, gameTitle), stage(stage)
 {
 	Path path;
-	duck = new Duck(path.NODE_DUCK,40,2);
+	duck = new Duck(path.NODE_DUCK,20,2);
 }
 
 GameScene::~GameScene()
@@ -24,10 +24,7 @@ void GameScene::showWindow()
 
 
 	//DO KLASY DUCK !!!
-	bool orientationX = true, orientationY = true;
-	bool animation = false;
-	enum direction { LEFT, RIGHT };
-	int x = 0, y = 0;
+	
 	while (!this->done) {
 
 		ALLEGRO_EVENT events;
@@ -38,45 +35,14 @@ void GameScene::showWindow()
 
 
 
-			if (duck->getXposition() == 0) {
-				orientationX = true;
-				duck->shiftY = duck->getHeight() / 2;
-			}
-			else if (duck->getXposition() == screen_width) {
-				orientationX = false;
-				duck->shiftY = 0;
-				
-			}
-			if (orientationX)
-				x += duck->moveSpeed;
-			else
-				x -= duck->moveSpeed;
 			
-			
-			if (orientationY)
-				y += duck->moveSpeed;
-			else
-				y -= duck->moveSpeed;
-			if (y == 0)
-				orientationY = true;
-			if (y == screen_height/4)
-				orientationY = false;
+			duck->move(this->screen_width, this->screen_height);
+
+		
+
+
 
 			
-			
-			//if (animation) {
-				duck->shiftX += ((duck->getWidth() / duck->frames));
-
-				if (duck->shiftX > duck->getWidth())
-					duck->shiftX = 0;
-			//}
-			
-
-
-
-
-			duck->setXposition(x);
-			duck->setYposition(y);
 			move = true;
 		}
 
