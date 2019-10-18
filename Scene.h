@@ -12,15 +12,11 @@ class Scene
 protected:
 	ALLEGRO_DISPLAY* display = NULL;
 	ALLEGRO_BITMAP* background = NULL;
-
-	ALLEGRO_TIMER* timer = NULL;
 	ALLEGRO_EVENT_QUEUE* event_queue = NULL;
-	ALLEGRO_KEYBOARD_STATE keyState;
 
 	const char* gameTitle;
 	int screen_width;
 	int screen_height;
-	const float FPS = 60;
 	bool done = false;
 
 public:
@@ -29,11 +25,11 @@ public:
 
 	virtual void showWindow()=0;
     void setBackground(const char* backgroundBitmap);
-	
+	void registerEvent();
+	void deleteEvent();
 
 private:
 	ALLEGRO_BITMAP* load_bitmap_at_size(const char* filename, int w, int h);
-	void registerEvent();
-	void deleteEvent();
+	
 };
 

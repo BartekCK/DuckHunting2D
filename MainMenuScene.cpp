@@ -24,9 +24,9 @@ MainMenuScene::~MainMenuScene()
 
 void MainMenuScene::showWindow()
 {
-	al_draw_bitmap(this->background, 0, 0, 0);
 	int x = 0, y = 0;
 	bool test = false;
+	registerEvent();
 
 	while (!this->done) {
 
@@ -50,13 +50,14 @@ void MainMenuScene::showWindow()
 			}
 
 		}
+		al_draw_bitmap(this->background, 0, 0, 0);
 
 		this->newGameButton->show();
 		this->endGameButton->show();
 		al_flip_display();
-
 	}
 	
+	deleteEvent();
 	if(test == true)
 		this->stage->showGame();
 }
