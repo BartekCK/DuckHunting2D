@@ -3,6 +3,7 @@
 #include <iostream>
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
+#include "Scene.h"
 
 using namespace std;
 
@@ -15,11 +16,13 @@ protected:
 
 	int xPosition = 0;
 	int yPosition = 0;
+
 	int width = 0;
 	int height = 0;
 	const char* backgroundBitmap;
 
 public:
+	Node(const char* backgroundBitmap,int width, int height,int xPosition, int yPosition);
 	Node(const char* backgroundBitmap);
 	~Node();
 

@@ -19,7 +19,7 @@ protected:
 	int screen_width;
 	int screen_height;
 	bool done = false;
-	const int FPS = 30;
+	const int FPS = 15;
 
 public:
 	Scene(int screenWidth, int screenHeight, const char* gameTitle);
@@ -30,8 +30,8 @@ public:
 	void registerEvent();
 	void deleteEvent();
 
-private:
-	ALLEGRO_BITMAP* load_bitmap_at_size(const char* filename, int w, int h);
+
+	static ALLEGRO_BITMAP* load_bitmap_at_size(const char* filename, int w, int h);
 	
 };
 
