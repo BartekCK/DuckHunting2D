@@ -12,8 +12,8 @@ Node::Node(const char* backgroundBitmap):backgroundBitmap(backgroundBitmap)
 		exit(0);
 	}
 
-	this->width = al_get_bitmap_width(this->objectBitmap);
-	this->height = al_get_bitmap_height(this->objectBitmap);
+	this->bitmapWidth = al_get_bitmap_width(this->objectBitmap);
+	this->bitmapHeight = al_get_bitmap_height(this->objectBitmap);
 }
 
 Node::~Node()
@@ -22,14 +22,14 @@ Node::~Node()
 	cout << "DESTRUKTOR Z NODE" << endl;
 }
 
-int Node::getWidth()
+int Node::getBitmapWidth()
 {
-	return this->width;
+	return this->bitmapWidth;
 }
 
-int Node::getHeight()
+int Node::getBitmapHeight()
 {
-	return this->height;
+	return this->bitmapHeight;
 }
 
 void Node::setXposition(int x)

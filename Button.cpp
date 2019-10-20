@@ -20,8 +20,8 @@ void Button::show()
 
 bool Button::buttonClick(int xClick, int yClick)
 {
-	if (xClick > xPosition&& xClick < xPosition + width &&
-		yClick > yPosition && yClick < yPosition + height) {
+	if (xClick > xPosition&& xClick < xPosition + bitmapWidth &&
+		yClick > yPosition && yClick < yPosition + bitmapHeight) {
 		return true;
 	}
 	return false;
