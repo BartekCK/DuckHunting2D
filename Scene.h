@@ -30,8 +30,9 @@ public:
 	void registerEvent();
 	void deleteEvent();
 
+private:
 
-	static ALLEGRO_BITMAP* load_bitmap_at_size(const char* filename, int w, int h);
+	ALLEGRO_BITMAP* load_bitmap_at_size(const char* filename, int w, int h);
 	
 };
 

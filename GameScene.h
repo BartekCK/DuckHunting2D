@@ -5,10 +5,12 @@
 #include"Path.h"
 #include <iostream>
 
+constexpr auto COUNT_DUCKS = 4;
+
 class GameScene:public Scene
 {
 	Stage* stage = NULL;
-	Duck* duck = NULL;
+	Duck* duck[COUNT_DUCKS];
 
 public:
 	GameScene(int screenWidth, int screenHeight, const char* gameTitle, Stage* stage);

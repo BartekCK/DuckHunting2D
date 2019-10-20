@@ -5,12 +5,18 @@ GameScene::GameScene(int screenWidth, int screenHeight, const char* gameTitle, S
 	:Scene(screenWidth, screenHeight, gameTitle), stage(stage)
 {
 	Path path;
-	duck = new Duck(path.NODE_DUCK,20,2);
+	for (int i = 0; i < COUNT_DUCKS; i++) {
+		this->duck[i] = new Duck(path.NODE_DUCK, 20, 2);
+	}
+	//duck = new Duck(path.NODE_DUCK,20,2);
 }
 
 GameScene::~GameScene()
 {
-	delete duck;
+	//delete duck;
+	for (int i = 0; i < COUNT_DUCKS; i++) {
+		delete this->duck[i];
+	}
 	cout << "DESTRUKTOR Z GAME_SCENE" << endl;
 }
 
@@ -35,8 +41,10 @@ void GameScene::showWindow()
 
 
 
-			
-			duck->move(this->screen_width, this->screen_height);
+			for (int i = 0; i < COUNT_DUCKS; i++) {
+				 this->duck[i]->move();
+			}
+			//duck->move(this->screen_width, this->screen_height);
 
 		
 
@@ -64,7 +72,10 @@ void GameScene::showWindow()
 		if (move == true) {
 			move = false;
 			al_draw_bitmap(this->background, 0, 0, 0);
-			duck->show();
+			for (int i = 0; i < COUNT_DUCKS; i++) {
+				this->duck[i]->show();
+			}
+			//duck->show();
 
 			al_flip_display();
 		}

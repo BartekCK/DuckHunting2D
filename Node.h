@@ -22,7 +22,6 @@ protected:
 	const char* backgroundBitmap;
 
 public:
-	Node(const char* backgroundBitmap,int width, int height,int xPosition, int yPosition);
 	Node(const char* backgroundBitmap);
 	~Node();
 
