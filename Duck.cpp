@@ -19,7 +19,7 @@ Duck::Duck(const char* backgroundBitmap, const int frames, const int levels) : N
 
 void Duck::show()
 {
-	al_draw_bitmap_region(this->objectBitmap, this->shiftX, this->shiftY, this->width / frames, this->height / levels, this->xPosition, this->yPosition,0);
+	al_draw_bitmap_region(this->objectBitmap, this->shiftX, this->shiftY, this->bitmapWidth / frames, this->bitmapHeight / levels, this->xPosition, this->yPosition,0);
 }
 
 void Duck::move()
@@ -28,7 +28,7 @@ void Duck::move()
 	//MOVEMENT X
 	if (xPosition == 0) {
 		orientationX = true;
-		this->shiftY = this->getHeight() / 2;
+		this->shiftY = this->getBitmapHeight() / 2;
 	}
 	else if (xPosition == GetSystemMetrics(SM_CXSCREEN)) {
 		orientationX = false;
@@ -53,8 +53,8 @@ void Duck::move()
 	
 	
 	//ANIMATION
-	this->shiftX += ((this->getWidth() / this->frames));
-	if (this->shiftX >= this->getWidth())
+	this->shiftX += ((this->getBitmapWidth() / this->frames));
+	if (this->shiftX >= this->getBitmapWidth())
 		this->shiftX = 0;
 
 }

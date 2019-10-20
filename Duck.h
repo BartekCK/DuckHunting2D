@@ -8,7 +8,6 @@ class Duck:public Node
 {
 private:
 
-	enum direction {LEFT,RIGHT};
 	bool orientationX = true;
 	bool orientationY = true;
 
@@ -29,10 +28,5 @@ public:
 	void show() override;
 	void move();
 	
-private:
-	void movementX();
-	void movementY();
-	void playAnimation();
-
 };
 
