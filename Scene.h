@@ -19,7 +19,7 @@ protected:
 	int screen_width;
 	int screen_height;
 	bool done = false;
-	const int FPS = 10;
+	const int FPS = 22;
 
 public:
 	Scene(int screenWidth, int screenHeight, const char* gameTitle);

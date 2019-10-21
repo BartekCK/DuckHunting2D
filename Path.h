@@ -7,7 +7,8 @@ public:
 	  const char* BUTTON_NEW_GAME = "images/buttons/buttonNewGame.png";
 	  const char* BUTTON_END_GAME = "images/buttons/buttonEndGame.png";
 	  const char* NODE_DUCK = "images/duck/duck.png";
-	  const char* SECOND_DUCK = "images/duck/duck2.png";
+	  const char* GROUND_DUCK = "images/duck/groundDuck.png";
+	  const char* EXPLOSION = "images/duck/explosion.png";
 	  const char* CROSSHAIR = "images/hunter/crosshair.png";
 };
 

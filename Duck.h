@@ -9,7 +9,8 @@ class Duck:public Node
 {
 protected:
 
-	
+	ALLEGRO_BITMAP* explosionBitmap = NULL;
+	bool staticBitmap = true;
 	bool orientationX = true;
 	bool orientationY = true;
 

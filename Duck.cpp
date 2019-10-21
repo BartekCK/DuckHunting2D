@@ -6,7 +6,7 @@ int Duck::temp = 100;
 
 Duck::Duck(const char* backgroundBitmap, const int frames, const int levels) : Node(backgroundBitmap),frames(frames),levels(levels)
 {
-	
+	Path path;
 	startPositionY = temp;
 	temp += 161;
 
@@ -16,18 +16,27 @@ Duck::Duck(const char* backgroundBitmap, const int frames, const int levels) : N
 		xPosition = 0;
 
 	yPosition = startPositionY;
+	explosionBitmap = al_load_bitmap(path.EXPLOSION);
 
 }
 
 Duck::~Duck()
 {
+	al_destroy_bitmap(explosionBitmap);
+
 }
 
 
 void Duck::show()
 {
-	al_draw_bitmap_region(this->objectBitmap, this->shiftX, this->shiftY, this->bitmapWidth / frames, this->bitmapHeight / levels, this->xPosition, this->yPosition,0);
-
+	if (staticBitmap)
+	{
+		staticBitmap = false;
+		al_draw_bitmap(explosionBitmap, xPosition, yPosition, 0);
+	}
+	else {
+		al_draw_bitmap_region(this->objectBitmap, this->shiftX, this->shiftY, this->bitmapWidth / frames, this->bitmapHeight / levels, this->xPosition, this->yPosition, 0);
+	}
 }
 
 void Duck::move()
@@ -70,13 +79,13 @@ void Duck::move()
 bool Duck::checkShoot(float xShot, float yShot, int i)
 {
 	
+
 	if (xShot > xPosition&& xShot < xPosition + bitmapWidth/frames &&
 		yShot > yPosition&& yShot < yPosition + bitmapHeight/levels) {
-		cout << "Kaczka zostala trafiona " << i << endl;
+		staticBitmap = true;
 		return true;
 	}
 	else
 		return false;
 	
 }
-

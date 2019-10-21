@@ -8,7 +8,7 @@ GameScene::GameScene(int screenWidth, int screenHeight, const char* gameTitle, S
 		this->duck[i] = new Duck(path.NODE_DUCK, 20, 2);
 	}
 	for (int i = 0; i < COUNT__GROUND_DUCKS; i++) {
-		this->groundDuck[i] = new GroundDuck(path.SECOND_DUCK, 16, 2);
+		this->groundDuck[i] = new GroundDuck(path.GROUND_DUCK, 16, 2);
 	}
 }
 
