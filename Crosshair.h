@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 #include "Path.h"
-#include "Duck.h"
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
 class Crosshair
@@ -17,7 +16,6 @@ public:
 	Crosshair(ALLEGRO_DISPLAY* display);
 	~Crosshair();
 	void showCross(float x, float y);
-	void shot(float x, float y,Duck duck[]);
 
 };
 

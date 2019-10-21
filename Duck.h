@@ -24,10 +24,12 @@ private:
 	const int levels;
 public:
 
+	static int const point = 100;
+
 	Duck(const char* backgroundBitmap, const int frames, const int levels);
 
 	void show() override;
 	void move();
-	void checkShoot(float xShot, float yShot,int i);
+	bool checkShoot(float xShot, float yShot,int i);
 };
 

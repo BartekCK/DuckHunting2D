@@ -3,7 +3,7 @@
 #include"Stage.h"
 #include"Duck.h"
 #include"Path.h"
-#include"Crosshair.h"
+#include"Hunter.h"
 #include <iostream>
 
 constexpr auto COUNT_DUCKS = 4;

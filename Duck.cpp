@@ -63,13 +63,15 @@ void Duck::move()
 
 }
 
-void Duck::checkShoot(float xShot, float yShot, int i)
+bool Duck::checkShoot(float xShot, float yShot, int i)
 {
 	
 	if (xShot > xPosition&& xShot < xPosition + bitmapWidth/frames &&
 		yShot > yPosition&& yShot < yPosition + bitmapHeight/levels) {
-		cout << "ZOSTALAM TRAFIONA" <<i<< endl;
+		return true;
 	}
+	else
+		return false;
 	
 }
 
