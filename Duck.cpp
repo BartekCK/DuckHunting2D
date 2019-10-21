@@ -2,6 +2,8 @@
 
 int Duck::temp = 100;
 
+
+
 Duck::Duck(const char* backgroundBitmap, const int frames, const int levels) : Node(backgroundBitmap),frames(frames),levels(levels)
 {
 	
@@ -14,12 +16,14 @@ Duck::Duck(const char* backgroundBitmap, const int frames, const int levels) : N
 		xPosition = 0;
 
 	yPosition = startPositionY;
+
 }
 
 
 void Duck::show()
 {
 	al_draw_bitmap_region(this->objectBitmap, this->shiftX, this->shiftY, this->bitmapWidth / frames, this->bitmapHeight / levels, this->xPosition, this->yPosition,0);
+
 }
 
 void Duck::move()
@@ -57,5 +61,15 @@ void Duck::move()
 	if (this->shiftX >= this->getBitmapWidth())
 		this->shiftX = 0;
 
+}
+
+void Duck::checkShoot(float xShot, float yShot, int i)
+{
+	
+	if (xShot > xPosition&& xShot < xPosition + bitmapWidth/frames &&
+		yShot > yPosition&& yShot < yPosition + bitmapHeight/levels) {
+		cout << "ZOSTALAM TRAFIONA" <<i<< endl;
+	}
+	
 }
 

@@ -1,13 +1,15 @@
 #pragma once
 #include "Node.h"
+#include "Path.h"
 #include <ctime>
 #include <Windows.h>
-
+#include <stdlib.h>
 
 class Duck:public Node
 {
 private:
 
+	
 	bool orientationX = true;
 	bool orientationY = true;
 
@@ -22,11 +24,10 @@ private:
 	const int levels;
 public:
 
-
 	Duck(const char* backgroundBitmap, const int frames, const int levels);
 
 	void show() override;
 	void move();
-	
+	void checkShoot(float xShot, float yShot,int i);
 };
 
