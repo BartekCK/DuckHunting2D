@@ -10,5 +10,10 @@ public:
 	  const char* GROUND_DUCK = "images/duck/groundDuck.png";
 	  const char* EXPLOSION = "images/duck/explosion.png";
 	  const char* CROSSHAIR = "images/hunter/crosshair.png";
+
+
+
+	  const char* MUSIC_SHOT = "sounds/shot.wav";
+	  const char* MUSIC_GAME = "gameMusic.wav";
 };
 

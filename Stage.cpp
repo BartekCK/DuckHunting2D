@@ -1,4 +1,6 @@
 #include "Stage.h"
+#include <allegro5/allegro_audio.h>
+#include <allegro5/allegro_acodec.h>
 
 Stage::Stage()
 {
@@ -10,6 +12,8 @@ Stage::Stage()
 	al_init_image_addon();
 	al_install_keyboard();
 	al_install_mouse();
+	al_install_audio();
+	al_init_acodec_addon();
 }
 
 Stage::~Stage()

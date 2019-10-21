@@ -10,6 +10,9 @@ GameScene::GameScene(int screenWidth, int screenHeight, const char* gameTitle, S
 	for (int i = 0; i < COUNT__GROUND_DUCKS; i++) {
 		this->groundDuck[i] = new GroundDuck(path.GROUND_DUCK, 16, 2);
 	}
+
+	soundEffect = al_load_sample(path.MUSIC_SHOT);
+	al_reserve_samples(1);
 }
 
 GameScene::~GameScene()
@@ -20,6 +23,7 @@ GameScene::~GameScene()
 	for (int i = 0; i < COUNT__GROUND_DUCKS; i++) {
 		delete this->groundDuck[i];
 	}
+	al_destroy_sample(soundEffect);
 	cout << "DESTRUKTOR Z GAME_SCENE" << endl;
 }
 
@@ -81,7 +85,7 @@ void GameScene::showWindow()
 					if (groundDuck[i]->checkShoot(x, y, i))
 						hunter->addPoints(Duck::point);
 				}
-
+				al_play_sample(soundEffect, 1.0, 0.0, 1, ALLEGRO_PLAYMODE_ONCE, 0);
 				
 			}
 
