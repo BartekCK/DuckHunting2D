@@ -158,6 +158,7 @@
     <ClCompile Include="Crosshair.cpp" />
     <ClCompile Include="Duck.cpp" />
     <ClCompile Include="GameScene.cpp" />
+    <ClCompile Include="GroundDuck.cpp" />
     <ClCompile Include="Hunter.cpp" />
     <ClCompile Include="MainMenuScene.cpp" />
     <ClCompile Include="Node.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="Crosshair.h" />
     <ClInclude Include="Duck.h" />
     <ClInclude Include="GameScene.h" />
+    <ClInclude Include="GroundDuck.h" />
     <ClInclude Include="Hunter.h" />
     <ClInclude Include="MainMenuScene.h" />
     <ClInclude Include="Node.h" />

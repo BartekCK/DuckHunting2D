@@ -19,6 +19,10 @@ Duck::Duck(const char* backgroundBitmap, const int frames, const int levels) : N
 
 }
 
+Duck::~Duck()
+{
+}
+
 
 void Duck::show()
 {
@@ -68,6 +72,7 @@ bool Duck::checkShoot(float xShot, float yShot, int i)
 	
 	if (xShot > xPosition&& xShot < xPosition + bitmapWidth/frames &&
 		yShot > yPosition&& yShot < yPosition + bitmapHeight/levels) {
+		cout << "Kaczka zostala trafiona " << i << endl;
 		return true;
 	}
 	else

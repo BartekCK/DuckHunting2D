@@ -1,6 +1,4 @@
 #include "GameScene.h"
-#include "math.h"
-#include <allegro5/allegro_primitives.h>
 
 GameScene::GameScene(int screenWidth, int screenHeight, const char* gameTitle, Stage* stage)
 	:Scene(screenWidth, screenHeight, gameTitle), stage(stage)
@@ -9,12 +7,18 @@ GameScene::GameScene(int screenWidth, int screenHeight, const char* gameTitle, S
 	for (int i = 0; i < COUNT_DUCKS; i++) {
 		this->duck[i] = new Duck(path.NODE_DUCK, 20, 2);
 	}
+	for (int i = 0; i < COUNT__GROUND_DUCKS; i++) {
+		this->groundDuck[i] = new GroundDuck(path.SECOND_DUCK, 16, 2);
+	}
 }
 
 GameScene::~GameScene()
 {
 	for (int i = 0; i < COUNT_DUCKS; i++) {
 		delete this->duck[i];
+	}
+	for (int i = 0; i < COUNT__GROUND_DUCKS; i++) {
+		delete this->groundDuck[i];
 	}
 	cout << "DESTRUKTOR Z GAME_SCENE" << endl;
 }
@@ -46,7 +50,9 @@ void GameScene::showWindow()
 			for (int i = 0; i < COUNT_DUCKS; i++) {
 				this->duck[i]->move();
 			}
-
+			for (int i = 0; i < COUNT__GROUND_DUCKS; i++) {
+				this->groundDuck[i]->move();
+			}
 			
 
 
@@ -67,8 +73,16 @@ void GameScene::showWindow()
 					
 					if (duck[i]->checkShoot(x, y, i))
 						hunter->addPoints(Duck::point);
-					cout << "Hunter points" << hunter->getPoints() << endl;
+					
 				}
+
+
+				for (int i = 0; i < COUNT__GROUND_DUCKS; i++) {
+					if (groundDuck[i]->checkShoot(x, y, i))
+						hunter->addPoints(Duck::point);
+				}
+
+				
 			}
 
 		}
@@ -85,6 +99,9 @@ void GameScene::showWindow()
 		if (move == true) {//ALL SHOW
 			move = false;
 			al_draw_bitmap(this->background, 0, 0, 0);
+			for (int i = 0; i < COUNT__GROUND_DUCKS; i++) {
+				this->groundDuck[i]->show();
+			}
 			for (int i = 0; i < COUNT_DUCKS; i++) {
 				this->duck[i]->show();
 			}

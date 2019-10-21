@@ -7,7 +7,7 @@
 
 class Duck:public Node
 {
-private:
+protected:
 
 	
 	bool orientationX = true;
@@ -27,9 +27,9 @@ public:
 	static int const point = 100;
 
 	Duck(const char* backgroundBitmap, const int frames, const int levels);
-
+	~Duck();
 	void show() override;
-	void move();
+	virtual void move();
 	bool checkShoot(float xShot, float yShot,int i);
 };
 
