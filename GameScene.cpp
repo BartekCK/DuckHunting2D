@@ -1,4 +1,6 @@
 #include "GameScene.h"
+#include <allegro5/allegro_native_dialog.h>
+#include <sstream>
 
 GameScene::GameScene(int screenWidth, int screenHeight, const char* gameTitle, Stage* stage)
 	:Scene(screenWidth, screenHeight, gameTitle), stage(stage)
@@ -40,7 +42,7 @@ GameScene::~GameScene()
 void GameScene::showWindow()
 {
 	al_play_sample_instance(songInstance);
-
+	int myTime = 0;
 	registerEvent();
 	startTimers();
 
@@ -79,7 +81,13 @@ void GameScene::showWindow()
 					this->superDuck[i]->move();
 				}
 			}
-			
+			if (events.timer.source == timer[3]) {
+
+				myTime++;
+				if (myTime == this->gameTime) {
+					break;
+				}
+			}
 			
 
 
@@ -150,8 +158,15 @@ void GameScene::showWindow()
 		
 	}
 
+	if (myTime == this->gameTime) {
+		stringstream str;
+		str << hunter->getPoints();
+		al_show_native_message_box(this->display, "Informacja", "Uzysales punktow:", str.str().c_str(), NULL, ALLEGRO_MESSAGEBOX_OK_CANCEL);
+	}
+
 	stopTimers();
 	delete hunter;
 	deleteEvent();
 	this->stage->showMenu();
+	
 }

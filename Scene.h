@@ -14,14 +14,15 @@ protected:
 	ALLEGRO_BITMAP* background = NULL;
 	ALLEGRO_EVENT_QUEUE* event_queue = NULL;
 
-	ALLEGRO_TIMER* timer[3];
+	ALLEGRO_TIMER* timer[4];
 	
 
 	const char* gameTitle;
 	int screen_width;
 	int screen_height;
 	bool done = false;
-	int FPS[3];
+	int FPS[4];
+	const int gameTime = 10;
 
 public:
 	Scene(int screenWidth, int screenHeight, const char* gameTitle);
