@@ -6,6 +6,6 @@ class GroundDuck:public Duck
 public:
 	GroundDuck(const char* backgroundBitmap, const int frames, const int levels);
 	~GroundDuck();
-	virtual void move();
+	void move() override;
 };
 

@@ -5,7 +5,7 @@
 #include <allegro5/allegro_image.h>
 class Hunter
 {
-	int points = 0;
+	static int points;
 	Crosshair* cross = NULL;
 
 public:

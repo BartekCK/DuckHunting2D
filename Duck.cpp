@@ -6,6 +6,7 @@ int Duck::temp = 100;
 
 Duck::Duck(const char* backgroundBitmap, const int frames, const int levels) : Node(backgroundBitmap),frames(frames),levels(levels)
 {
+	point = 100;
 	Path path;
 	startPositionY = temp;
 	temp += 161;
@@ -89,4 +90,9 @@ bool Duck::checkShoot(float xShot, float yShot, int i)
 	else
 		return false;
 	
+}
+
+int Duck::getPoint()
+{
+	return this->point;
 }

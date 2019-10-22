@@ -1,8 +1,12 @@
 #include "GroundDuck.h"
 
+
+
 GroundDuck::GroundDuck(const char* backgroundBitmap, const int frames, const int levels)
 	:Duck(backgroundBitmap,frames,levels)
 {
+	this->point = 50;
+
 	if (temp % 2 == 0)
 		xPosition = GetSystemMetrics(SM_CXSCREEN)+200;
 	else

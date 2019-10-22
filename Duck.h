@@ -23,14 +23,16 @@ protected:
 
 	const int frames;
 	const int levels;
+	int point = 0;
+
 public:
 
-	static int const point = 100;
 
 	Duck(const char* backgroundBitmap, const int frames, const int levels);
 	~Duck();
 	void show() override;
 	virtual void move();
 	bool checkShoot(float xShot, float yShot,int i);
+	int getPoint();
 };
 

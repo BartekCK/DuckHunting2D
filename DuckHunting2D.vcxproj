@@ -167,6 +167,7 @@
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="DuckHunting2D.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SuperDuck.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -183,6 +184,7 @@
     <ClInclude Include="Path.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="SuperDuck.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

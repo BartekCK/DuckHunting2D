@@ -10,6 +10,9 @@ GameScene::GameScene(int screenWidth, int screenHeight, const char* gameTitle, S
 	for (int i = 0; i < COUNT__GROUND_DUCKS; i++) {
 		this->groundDuck[i] = new GroundDuck(path.GROUND_DUCK, 16, 2);
 	}
+	for (int i = 0; i < COUNT_SUPER_DUCKS; i++) {
+		this->superDuck[i] = new SuperDuck(path.SUPER_DUCK, 14, 2);
+	}
 
 	this->soundEffect = al_load_sample(path.MUSIC_SHOT);
 	this->song = al_load_sample(path.MUSIC_GAME);
@@ -66,6 +69,9 @@ void GameScene::showWindow()
 			for (int i = 0; i < COUNT__GROUND_DUCKS; i++) {
 				this->groundDuck[i]->move();
 			}
+			for (int i = 0; i < COUNT_SUPER_DUCKS; i++) {
+				this->superDuck[i]->move();
+			}
 			
 
 
@@ -85,15 +91,21 @@ void GameScene::showWindow()
 				for (int i = 0; i < COUNT_DUCKS; i++) {
 					
 					if (duck[i]->checkShoot(x, y, i))
-						hunter->addPoints(Duck::point);
-					
+						hunter->addPoints(duck[i]->getPoint());
+
 				}
 
 
 				for (int i = 0; i < COUNT__GROUND_DUCKS; i++) {
 					if (groundDuck[i]->checkShoot(x, y, i))
-						hunter->addPoints(Duck::point);
+						hunter->addPoints(groundDuck[i]->getPoint());
 				}
+				for (int i = 0; i < COUNT_SUPER_DUCKS; i++) {
+					if (superDuck[i]->checkShoot(x, y, i))
+						hunter->addPoints(superDuck[i]->getPoint());
+				}
+
+
 				al_play_sample(soundEffect, 1.0, 0.0, 1, ALLEGRO_PLAYMODE_ONCE, 0);
 				
 			}
@@ -101,6 +113,7 @@ void GameScene::showWindow()
 		}
 		
 		else if (events.type == ALLEGRO_EVENT_KEY_DOWN) {
+			cout << "Hunter points " << hunter->getPoints() << endl;
 			switch (events.keyboard.keycode)
 			{
 			case ALLEGRO_KEY_ESCAPE:
@@ -117,6 +130,9 @@ void GameScene::showWindow()
 			}
 			for (int i = 0; i < COUNT_DUCKS; i++) {
 				this->duck[i]->show();
+			}
+			for (int i = 0; i < COUNT_SUPER_DUCKS; i++) {
+				this->superDuck[i]->show();
 			}
 			hunter->getCross()->showCross(x, y);
 			al_flip_display();
