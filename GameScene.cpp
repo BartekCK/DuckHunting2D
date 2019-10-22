@@ -42,7 +42,8 @@ void GameScene::showWindow()
 	al_play_sample_instance(songInstance);
 
 	registerEvent();
-	al_start_timer(this -> timer);
+	startTimers();
+
 	done = false;
 	bool move = true;
 	float x = 0, y = 0;
@@ -61,17 +62,24 @@ void GameScene::showWindow()
 
 		if (events.type == ALLEGRO_EVENT_TIMER) {
 
-
-
-			for (int i = 0; i < COUNT_DUCKS; i++) {
-				this->duck[i]->move();
+			if (events.timer.source == timer[0]) {
+				for (int i = 0; i < COUNT_DUCKS; i++) {
+					this->duck[i]->move();
+				}
 			}
-			for (int i = 0; i < COUNT__GROUND_DUCKS; i++) {
-				this->groundDuck[i]->move();
+			if (events.timer.source == timer[1]) {
+				
+				for (int i = 0; i < COUNT__GROUND_DUCKS; i++) {
+					this->groundDuck[i]->move();
+				}
 			}
-			for (int i = 0; i < COUNT_SUPER_DUCKS; i++) {
-				this->superDuck[i]->move();
+			if (events.timer.source == timer[2]) {
+				
+				for (int i = 0; i < COUNT_SUPER_DUCKS; i++) {
+					this->superDuck[i]->move();
+				}
 			}
+			
 			
 
 
@@ -142,7 +150,7 @@ void GameScene::showWindow()
 		
 	}
 
-	al_stop_timer(this->timer);
+	stopTimers();
 	delete hunter;
 	deleteEvent();
 	this->stage->showMenu();

@@ -13,13 +13,15 @@ protected:
 	ALLEGRO_DISPLAY* display = NULL;
 	ALLEGRO_BITMAP* background = NULL;
 	ALLEGRO_EVENT_QUEUE* event_queue = NULL;
-	ALLEGRO_TIMER* timer = NULL;
+
+	ALLEGRO_TIMER* timer[3];
+	
 
 	const char* gameTitle;
 	int screen_width;
 	int screen_height;
 	bool done = false;
-	const int FPS = 22;
+	int FPS[3];
 
 public:
 	Scene(int screenWidth, int screenHeight, const char* gameTitle);
@@ -29,6 +31,8 @@ public:
     void setBackground(const char* backgroundBitmap);
 	void registerEvent();
 	void deleteEvent();
+	void startTimers();
+	void stopTimers();
 
 private:
 
