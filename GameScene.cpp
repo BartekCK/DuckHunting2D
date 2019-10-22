@@ -11,8 +11,13 @@ GameScene::GameScene(int screenWidth, int screenHeight, const char* gameTitle, S
 		this->groundDuck[i] = new GroundDuck(path.GROUND_DUCK, 16, 2);
 	}
 
-	soundEffect = al_load_sample(path.MUSIC_SHOT);
-	al_reserve_samples(1);
+	this->soundEffect = al_load_sample(path.MUSIC_SHOT);
+	this->song = al_load_sample(path.MUSIC_GAME);
+	al_reserve_samples(2);
+
+	this->songInstance = al_create_sample_instance(this->song);
+	al_set_sample_instance_playmode(this->songInstance, ALLEGRO_PLAYMODE_LOOP);
+	al_attach_sample_instance_to_mixer(this->songInstance, al_get_default_mixer());
 }
 
 GameScene::~GameScene()
@@ -24,11 +29,15 @@ GameScene::~GameScene()
 		delete this->groundDuck[i];
 	}
 	al_destroy_sample(soundEffect);
+	al_destroy_sample(song);
+	al_destroy_sample_instance(songInstance);
 	cout << "DESTRUKTOR Z GAME_SCENE" << endl;
 }
 
 void GameScene::showWindow()
 {
+	al_play_sample_instance(songInstance);
+
 	registerEvent();
 	al_start_timer(this -> timer);
 	done = false;

@@ -23,6 +23,7 @@ Duck::Duck(const char* backgroundBitmap, const int frames, const int levels) : N
 Duck::~Duck()
 {
 	al_destroy_bitmap(explosionBitmap);
+	cout << "DESTRUKTOR Z DUCK" << endl;
 
 }
 

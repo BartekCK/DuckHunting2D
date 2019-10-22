@@ -17,7 +17,10 @@ class GameScene:public Scene
 	Stage* stage = NULL;
 	Duck* duck[COUNT_DUCKS];
 	GroundDuck* groundDuck[COUNT__GROUND_DUCKS];
+
 	ALLEGRO_SAMPLE* soundEffect = NULL;
+	ALLEGRO_SAMPLE* song = NULL;
+	ALLEGRO_SAMPLE_INSTANCE* songInstance = NULL;
 
 public:
 	GameScene(int screenWidth, int screenHeight, const char* gameTitle, Stage* stage);

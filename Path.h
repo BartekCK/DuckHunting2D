@@ -14,6 +14,6 @@ public:
 
 
 	  const char* MUSIC_SHOT = "sounds/shot.wav";
-	  const char* MUSIC_GAME = "gameMusic.wav";
+	  const char* MUSIC_GAME = "sounds/gameMusic.wav";
 };
 
