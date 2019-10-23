@@ -9,6 +9,7 @@ class Stage {
 private:
 	Scene *menuScene = NULL;
 	Scene *gameScene = NULL;
+	Scene *timeScene = NULL;
 	
 public:
 	Stage();
@@ -17,7 +18,9 @@ public:
 
 	void setMenuScene(Scene *scene);
 	void setGameScene(Scene *scene);
+	void setTimeScene(Scene *scene);
 	void showMenu();
 	void showGame();
+	void showTimers();
 };
 

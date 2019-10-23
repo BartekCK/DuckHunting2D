@@ -59,6 +59,6 @@ void MainMenuScene::showWindow()
 	
 	deleteEvent();
 	if(test == true)
-		this->stage->showGame();
+		this->stage->showTimers();
 }
 

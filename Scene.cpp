@@ -18,7 +18,6 @@ Scene::Scene(int screenWidth, int screenHeight, const char* gameTitle)
 	FPS[2] = 70;
 	FPS[3] = 1;
 	
-	//registerEvent();
 }
 
 void Scene::registerEvent()
@@ -67,7 +66,6 @@ Scene::~Scene()
 	al_destroy_display(this->display);
 	al_destroy_bitmap(this->background);
 
-	//deleteEvent();
 
 	cout << "DESKTRUKTOR ZE SCENE" << endl;
 

@@ -173,6 +173,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SuperDuck.cpp" />
     <ClCompile Include="Text.cpp" />
+    <ClCompile Include="TimeScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -192,6 +193,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SuperDuck.h" />
     <ClInclude Include="Text.h" />
+    <ClInclude Include="TimeScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

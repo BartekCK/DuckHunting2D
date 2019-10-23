@@ -34,6 +34,8 @@ GameScene::~GameScene()
 
 void GameScene::showWindow()
 {
+	Path path;
+
 	Text text;
 	this->gameTime = 15;
 	registerEvent();

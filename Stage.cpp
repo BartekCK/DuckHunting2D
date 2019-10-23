@@ -25,7 +25,7 @@ Stage::~Stage()
 	
 	delete menuScene;
 	delete gameScene;
-
+	delete timeScene;
 	al_uninstall_system();
 	cout << "DESKTRUKTOR ZE STAGE" << endl;
 }
@@ -42,6 +42,12 @@ void Stage::setGameScene(Scene* scene)
 
 }
 
+void Stage::setTimeScene(Scene* scene)
+{
+	this->timeScene = scene;
+
+}
+
 void Stage::showMenu()
 {
 	this->menuScene->showWindow();
@@ -51,6 +57,11 @@ void Stage::showMenu()
 void Stage::showGame()
 {
 	this->gameScene->showWindow();
+}
+
+void Stage::showTimers()
+{
+	this->timeScene->showWindow();
 }
 
 

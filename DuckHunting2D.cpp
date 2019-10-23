@@ -7,6 +7,7 @@
 #include "Path.h"
 #include "MainMenuScene.h"
 #include "GameScene.h"
+#include "TimeScene.h"
 
 using namespace std;
 
@@ -16,12 +17,15 @@ int main()
 	Stage *stage = new Stage();
 	Scene* sceneMenu = new MainMenuScene(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), "Duck hunting", stage);
 	Scene* sceneGame = new GameScene(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), "Duck hunting", stage);
+	Scene* sceneTime = new TimeScene(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), "Duck hunting", stage);
 	
 	sceneMenu->setBackground(path.BACKGROUND_MAIN_MENU);
 	sceneGame->setBackground(path.BACKGROUND_GAME);
+	sceneTime->setBackground(path.BACKGROUND_MAIN_MENU);
 
 	stage->setMenuScene(sceneMenu);
 	stage->setGameScene(sceneGame);
+	stage->setTimeScene(sceneTime);
 
 	stage->showMenu();
 
