@@ -5,7 +5,7 @@
 #include"Path.h"
 class TimeScene :public Scene
 {
-	Button* button;
+	Button* button[3];
 	Stage* stage = NULL;
 
 

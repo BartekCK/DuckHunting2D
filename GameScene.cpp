@@ -34,10 +34,8 @@ GameScene::~GameScene()
 
 void GameScene::showWindow()
 {
-	Path path;
-
+	displayRegister();
 	Text text;
-	this->gameTime = 15;
 	registerEvent();
 	startTimers();
 	Music* music = new Music();
@@ -160,6 +158,7 @@ void GameScene::showWindow()
 	delete hunter;
 	delete music;
 	deleteEvent();
+	displayDelete();
 	this->stage->showMenu();
 	
 }

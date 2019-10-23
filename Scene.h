@@ -22,7 +22,10 @@ protected:
 	int screen_height;
 	bool done = false;
 	int FPS[4];
-	int gameTime = 0;
+	static int gameTime;
+
+	void displayRegister();
+	void displayDelete();
 
 public:
 	Scene(int screenWidth, int screenHeight, const char* gameTitle);
@@ -34,6 +37,8 @@ public:
 	void deleteEvent();
 	void startTimers();
 	void stopTimers();
+
+	
 
 private:
 
