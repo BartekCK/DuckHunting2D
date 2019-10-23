@@ -60,6 +60,9 @@
     <ClCompile Include="TimeScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RankingScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -108,6 +111,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TimeScene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RankingScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

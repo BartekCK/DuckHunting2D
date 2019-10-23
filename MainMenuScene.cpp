@@ -59,8 +59,8 @@ void MainMenuScene::showWindow()
 	}
 	
 	deleteEvent();
+	displayDelete();
 	if (test == true) {
-		displayDelete();
 		this->stage->showTimers();
 
 	}

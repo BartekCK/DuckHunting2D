@@ -26,6 +26,7 @@ Stage::~Stage()
 	delete menuScene;
 	delete gameScene;
 	delete timeScene;
+	delete rankingScene;
 	al_uninstall_system();
 	cout << "DESKTRUKTOR ZE STAGE" << endl;
 }
@@ -48,6 +49,12 @@ void Stage::setTimeScene(Scene* scene)
 
 }
 
+void Stage::setRankingScene(Scene* scene)
+{
+	this->rankingScene = scene;
+
+}
+
 void Stage::showMenu()
 {
 	this->menuScene->showWindow();
@@ -62,6 +69,12 @@ void Stage::showGame()
 void Stage::showTimers()
 {
 	this->timeScene->showWindow();
+}
+
+void Stage::showRanking()
+{
+	this->rankingScene->showWindow();
+
 }
 
 

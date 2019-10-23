@@ -1,6 +1,6 @@
 #include "Hunter.h"
 
-
+int Hunter::points = 0;
 Hunter::Hunter(ALLEGRO_DISPLAY* display)
 {
 	cross = new Crosshair(display);

@@ -45,7 +45,7 @@ void GameScene::showWindow()
 	bool move = true;
 	float x = 0, y = 0;
 	Hunter *hunter = new Hunter(this->display);
-	
+	Hunter::points = 0;
 
 	while (!this->done) {
 
@@ -150,15 +150,15 @@ void GameScene::showWindow()
 				
 	}
 
-	if (gameTime == 0) {
+	/*if (gameTime == 0) {
 		text.gameEndInformation(this->display, hunter->getPoints());
-	}
+	}*/
 
 	stopTimers();
 	delete hunter;
 	delete music;
 	deleteEvent();
 	displayDelete();
-	this->stage->showMenu();
+	this->stage->showRanking();
 	
 }

@@ -168,6 +168,7 @@
     <ClCompile Include="MainMenuScene.cpp" />
     <ClCompile Include="Music.cpp" />
     <ClCompile Include="Node.cpp" />
+    <ClCompile Include="RankingScene.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="DuckHunting2D.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -189,6 +190,7 @@
     <ClInclude Include="Music.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Path.h" />
+    <ClInclude Include="RankingScene.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SuperDuck.h" />
