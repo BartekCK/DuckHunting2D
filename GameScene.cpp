@@ -16,13 +16,7 @@ GameScene::GameScene(int screenWidth, int screenHeight, const char* gameTitle, S
 	}
 
 
-	this->soundEffect = al_load_sample(path.MUSIC_SHOT);
-	this->song = al_load_sample(path.MUSIC_GAME);
-	al_reserve_samples(2);
 
-	this->songInstance = al_create_sample_instance(this->song);
-	al_set_sample_instance_playmode(this->songInstance, ALLEGRO_PLAYMODE_LOOP);
-	al_attach_sample_instance_to_mixer(this->songInstance, al_get_default_mixer());
 }
 
 GameScene::~GameScene()
@@ -34,9 +28,7 @@ GameScene::~GameScene()
 		delete this->groundDuck[i];
 	}
 
-	al_destroy_sample(soundEffect);
-	al_destroy_sample(song);
-	al_destroy_sample_instance(songInstance);
+
 	cout << "DESTRUKTOR Z GAME_SCENE" << endl;
 }
 
@@ -44,9 +36,10 @@ void GameScene::showWindow()
 {
 	Text text;
 	this->gameTime = 15;
-	al_play_sample_instance(songInstance);
 	registerEvent();
 	startTimers();
+	Music* music = new Music();
+	music->playMusic();
 
 	done = false;
 	bool move = true;
@@ -119,15 +112,13 @@ void GameScene::showWindow()
 						hunter->addPoints(superDuck[i]->getPoint());
 				}
 
-
-				al_play_sample(soundEffect, 1.0, 0.0, 1, ALLEGRO_PLAYMODE_ONCE, 0);
+				music->shotSound();
 				
 			}
 
 		}
 		
 		else if (events.type == ALLEGRO_EVENT_KEY_DOWN) {
-			cout << "Hunter points " << hunter->getPoints() << endl;
 			switch (events.keyboard.keycode)
 			{
 			case ALLEGRO_KEY_ESCAPE:
@@ -165,6 +156,7 @@ void GameScene::showWindow()
 
 	stopTimers();
 	delete hunter;
+	delete music;
 	deleteEvent();
 	this->stage->showMenu();
 	

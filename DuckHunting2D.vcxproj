@@ -166,6 +166,7 @@
     <ClCompile Include="GroundDuck.cpp" />
     <ClCompile Include="Hunter.cpp" />
     <ClCompile Include="MainMenuScene.cpp" />
+    <ClCompile Include="Music.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="DuckHunting2D.cpp" />
@@ -184,6 +185,7 @@
     <ClInclude Include="GroundDuck.h" />
     <ClInclude Include="Hunter.h" />
     <ClInclude Include="MainMenuScene.h" />
+    <ClInclude Include="Music.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Path.h" />
     <ClInclude Include="Stage.h" />
