@@ -1,6 +1,7 @@
 #include "Scene.h"
 
 int Scene::gameTime = 0;
+int Scene::tempGameTime = 0;
 
 
 

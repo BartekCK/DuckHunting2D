@@ -24,6 +24,7 @@ protected:
 	bool done = false;
 	int FPS[4];
 	static int gameTime;
+	static int tempGameTime;
 
 	void displayRegister();
 	void displayDelete();

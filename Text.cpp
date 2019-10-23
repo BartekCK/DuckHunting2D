@@ -27,7 +27,7 @@ void Text::showPoint(int point, int screen_width,int screen_height)
 {
 	std::stringstream pointsStr;
 	pointsStr << "Zdobyte punkty: \n" << point;
-	al_draw_text(this->font, al_map_rgb(255, 0, 50), screen_width, screen_height, ALLEGRO_ALIGN_CENTER, pointsStr.str().c_str());
+	al_draw_text(this->font, al_map_rgb(255, 0, 0), screen_width, screen_height, ALLEGRO_ALIGN_CENTER, pointsStr.str().c_str());
 
 }
 
@@ -49,21 +49,21 @@ void Text::gameEndInformation(ALLEGRO_DISPLAY * display,int point)
 
 }
 
-void Text::bestRanking15(int screen_width, int screen_height)
+void Text::bestRanking15(string best, int screen_width, int screen_height)
 {
 	std::stringstream pointsStr;
 	pointsStr << "Najlepszy wynik na 15 sekund :"<<best;
 	al_draw_text(this->font, al_map_rgb(255, 0, 0), screen_width, screen_height, ALLEGRO_ALIGN_CENTER, pointsStr.str().c_str());
 }
 
-void Text::bestRanking30(int screen_width, int screen_height)
+void Text::bestRanking30(string best, int screen_width, int screen_height)
 {
 	std::stringstream pointsStr;
 	pointsStr << "Najlepszy wynik na 30 sekund :" << best;
 	al_draw_text(this->font, al_map_rgb(255, 0, 0), screen_width, screen_height, ALLEGRO_ALIGN_CENTER, pointsStr.str().c_str());
 }
 
-void Text::bestRanking60(int screen_width, int screen_height)
+void Text::bestRanking60(string best, int screen_width, int screen_height)
 {
 	std::stringstream pointsStr;
 	pointsStr << "Najlepszy wynik na 30 sekund :" << best;

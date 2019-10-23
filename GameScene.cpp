@@ -40,7 +40,7 @@ void GameScene::showWindow()
 	startTimers();
 	Music* music = new Music();
 	music->playMusic();
-
+	tempGameTime = gameTime;
 	done = false;
 	bool move = true;
 	float x = 0, y = 0;
@@ -149,10 +149,6 @@ void GameScene::showWindow()
 		}
 				
 	}
-
-	/*if (gameTime == 0) {
-		text.gameEndInformation(this->display, hunter->getPoints());
-	}*/
 
 	stopTimers();
 	delete hunter;

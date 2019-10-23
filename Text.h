@@ -7,10 +7,11 @@
 #include <allegro5/allegro_font.h>
 #include <allegro5/allegro_native_dialog.h>
 
+using namespace std;
+
 class Text
 {
 	ALLEGRO_FONT* font = NULL;
-	int best = 0;
 public:
 
 	Text();
@@ -19,9 +20,9 @@ public:
 	void showPoint(int point, int screen_width, int screen_height);
 	void showTime(int time);
 	void gameEndInformation(ALLEGRO_DISPLAY* display, int point);
-	void bestRanking15(int screen_width, int screen_height);
-	void bestRanking30(int screen_width, int screen_height);
-	void bestRanking60(int screen_width, int screen_height);
+	void bestRanking15(string best, int screen_width, int screen_height);
+	void bestRanking30(string best, int screen_width, int screen_height);
+	void bestRanking60(string best, int screen_width, int screen_height);
 
 };
 

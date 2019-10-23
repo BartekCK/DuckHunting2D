@@ -1,5 +1,6 @@
 #include "RankingScene.h"
 #include "Text.h"
+#include "Loader.h"
 #include "Hunter.h"
 
 RankingScene::RankingScene(int screenWidth, int screenHeight, const char* gameTitle, Stage* stage)
@@ -16,8 +17,14 @@ RankingScene::~RankingScene()
 	delete button;
 }
 
+
+
+
+
 void RankingScene::showWindow()
 {
+	checkPoints();
+
 	displayRegister();
 	int x = 0, y = 0;
 	registerEvent();
@@ -45,15 +52,53 @@ void RankingScene::showWindow()
 		al_draw_bitmap(this->background, 0, 0, 0);
 		this->button->show();
 
-		text.showPoint(Hunter::points, screen_width / 2, 0);
-		text.bestRanking15(screen_width/2,300);
-		text.bestRanking30(screen_width/2,450);
-		text.bestRanking60(screen_width/2,600);
+		text.showPoint(Hunter::points, screen_width / 2, 50);
+		text.bestRanking15(bestPoints[0],screen_width/2,300);
+		text.bestRanking30(bestPoints[1],screen_width/2,450);
+		text.bestRanking60(bestPoints[2],screen_width/2,600);
 		al_flip_display();
 	}
-
+	tempGameTime = 0;
 	deleteEvent();
 	displayDelete();
+	
 	this->stage->showMenu();
 	
+}
+
+void RankingScene::checkPoints()
+{
+	Loader loader;
+	loader.readFromFile(bestPoints);
+
+	int value = 0;
+	int i = 0;
+	if (tempGameTime == 15)
+	{
+		i = 0;
+		istringstream iss(bestPoints[i]);
+		iss >> value;
+
+	}
+	else if (tempGameTime == 30)
+	{
+		i = 1;
+		istringstream iss(bestPoints[i]);
+		iss >> value;
+
+	}
+	else
+	{
+		i = 2;
+		istringstream iss(bestPoints[i]);
+		iss >> value;
+
+	}
+
+	if (Hunter::points > value) {
+		ostringstream ss;
+		ss << Hunter::points;
+		bestPoints[i] = ss.str();
+		loader.saveToFile(bestPoints);
+	}
 }
