@@ -12,7 +12,7 @@ public:
 	  const char* EXPLOSION = "images/duck/explosion.png";
 	  const char* CROSSHAIR = "images/hunter/crosshair.png";
 
-
+	  const char* MY_FONT = "font/orbitron-black.ttf";
 
 	  const char* MUSIC_SHOT = "sounds/shot.wav";
 	  const char* MUSIC_GAME = "sounds/gameMusic.wav";

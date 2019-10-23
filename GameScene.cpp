@@ -16,6 +16,8 @@ GameScene::GameScene(int screenWidth, int screenHeight, const char* gameTitle, S
 		this->superDuck[i] = new SuperDuck(path.SUPER_DUCK, 14, 2);
 	}
 
+	this->font = al_load_font(path.MY_FONT, 40, NULL);
+
 	this->soundEffect = al_load_sample(path.MUSIC_SHOT);
 	this->song = al_load_sample(path.MUSIC_GAME);
 	al_reserve_samples(2);
@@ -33,6 +35,8 @@ GameScene::~GameScene()
 	for (int i = 0; i < COUNT__GROUND_DUCKS; i++) {
 		delete this->groundDuck[i];
 	}
+
+	al_destroy_font(font);
 	al_destroy_sample(soundEffect);
 	al_destroy_sample(song);
 	al_destroy_sample_instance(songInstance);
@@ -151,11 +155,16 @@ void GameScene::showWindow()
 				this->superDuck[i]->show();
 			}
 			hunter->getCross()->showCross(x, y);
+
+
+			stringstream pointsStr;
+			pointsStr <<"Punkty:\n"<<hunter->getPoints();
+			al_draw_text(this->font, al_map_rgb(255, 0, 0), screen_width-250, 0, ALLEGRO_ALIGN_CENTER, pointsStr.str().c_str());
+
+
 			al_flip_display();
 		}
-		
-		
-		
+				
 	}
 
 	if (myTime == this->gameTime) {
