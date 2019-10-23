@@ -7,10 +7,9 @@
 #include <iostream>
 #include"GroundDuck.h"
 #include"SuperDuck.h"
+#include"Text.h"
 #include <allegro5/allegro_audio.h>
 #include <allegro5/allegro_acodec.h>
-#include <allegro5/allegro_ttf.h>
-#include <allegro5/allegro_font.h>
 
 constexpr auto COUNT_DUCKS = 4;
 constexpr auto COUNT__GROUND_DUCKS = 2;
@@ -26,7 +25,6 @@ class GameScene:public Scene
 	ALLEGRO_SAMPLE* soundEffect = NULL;
 	ALLEGRO_SAMPLE* song = NULL;
 	ALLEGRO_SAMPLE_INSTANCE* songInstance = NULL;
-	ALLEGRO_FONT* font = NULL;
 
 public:
 	GameScene(int screenWidth, int screenHeight, const char* gameTitle, Stage* stage);

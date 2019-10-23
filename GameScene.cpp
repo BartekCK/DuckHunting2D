@@ -1,5 +1,4 @@
 #include "GameScene.h"
-#include <allegro5/allegro_native_dialog.h>
 #include <sstream>
 
 GameScene::GameScene(int screenWidth, int screenHeight, const char* gameTitle, Stage* stage)
@@ -16,7 +15,6 @@ GameScene::GameScene(int screenWidth, int screenHeight, const char* gameTitle, S
 		this->superDuck[i] = new SuperDuck(path.SUPER_DUCK, 14, 2);
 	}
 
-	this->font = al_load_font(path.MY_FONT, 40, NULL);
 
 	this->soundEffect = al_load_sample(path.MUSIC_SHOT);
 	this->song = al_load_sample(path.MUSIC_GAME);
@@ -36,7 +34,6 @@ GameScene::~GameScene()
 		delete this->groundDuck[i];
 	}
 
-	al_destroy_font(font);
 	al_destroy_sample(soundEffect);
 	al_destroy_sample(song);
 	al_destroy_sample_instance(songInstance);
@@ -45,8 +42,9 @@ GameScene::~GameScene()
 
 void GameScene::showWindow()
 {
+	Text text;
+	this->gameTime = 15;
 	al_play_sample_instance(songInstance);
-	int myTime = 0;
 	registerEvent();
 	startTimers();
 
@@ -55,10 +53,6 @@ void GameScene::showWindow()
 	float x = 0, y = 0;
 	Hunter *hunter = new Hunter(this->display);
 	
-	int duckWidth = duck[0]->getBitmapWidth()/20;
-	int duckHeight = duck[0]->getBitmapHeight()/2;
-	
-
 
 	while (!this->done) {
 
@@ -87,8 +81,8 @@ void GameScene::showWindow()
 			}
 			if (events.timer.source == timer[3]) {
 
-				myTime++;
-				if (myTime == this->gameTime) {
+				gameTime--;
+				if (gameTime == 0) {
 					break;
 				}
 			}
@@ -157,20 +151,16 @@ void GameScene::showWindow()
 			hunter->getCross()->showCross(x, y);
 
 
-			stringstream pointsStr;
-			pointsStr <<"Punkty:\n"<<hunter->getPoints();
-			al_draw_text(this->font, al_map_rgb(255, 0, 0), screen_width-250, 0, ALLEGRO_ALIGN_CENTER, pointsStr.str().c_str());
-
+			text.showTime(gameTime);
+			text.showPoint(hunter->getPoints(),screen_width);
 
 			al_flip_display();
 		}
 				
 	}
 
-	if (myTime == this->gameTime) {
-		stringstream str;
-		str << hunter->getPoints();
-		al_show_native_message_box(this->display, "Informacja", "Uzysales punktow:", str.str().c_str(), NULL, ALLEGRO_MESSAGEBOX_OK_CANCEL);
+	if (gameTime == 0) {
+		text.gameEndInformation(this->display, hunter->getPoints());
 	}
 
 	stopTimers();
