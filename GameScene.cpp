@@ -96,13 +96,9 @@ void GameScene::showWindow()
 				y = events.mouse.y;
 				
 				for (int i = 0; i < COUNT_DUCKS; i++) {
-					
 					if (duck[i]->checkShoot(x, y, i))
 						hunter->addPoints(duck[i]->getPoint());
-
 				}
-
-
 				for (int i = 0; i < COUNT__GROUND_DUCKS; i++) {
 					if (groundDuck[i]->checkShoot(x, y, i))
 						hunter->addPoints(groundDuck[i]->getPoint());
@@ -111,7 +107,6 @@ void GameScene::showWindow()
 					if (superDuck[i]->checkShoot(x, y, i))
 						hunter->addPoints(superDuck[i]->getPoint());
 				}
-
 				music->shotSound();
 				
 			}

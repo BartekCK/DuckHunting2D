@@ -19,7 +19,7 @@ void Text::showPoint(int point,int screen_width)
 {
 	std::stringstream pointsStr;
 	pointsStr << "Punkty: \n" << point;
-	al_draw_text(this->font, al_map_rgb(255, 0, 0), screen_width-150, 50, ALLEGRO_ALIGN_CENTER, pointsStr.str().c_str());
+	al_draw_text(this->font, al_map_rgb(255, 0, 0), screen_width-180, 50, ALLEGRO_ALIGN_CENTER, pointsStr.str().c_str());
 	
 }
 
@@ -66,6 +66,6 @@ void Text::bestRanking30(string best, int screen_width, int screen_height)
 void Text::bestRanking60(string best, int screen_width, int screen_height)
 {
 	std::stringstream pointsStr;
-	pointsStr << "Najlepszy wynik na 30 sekund :" << best;
+	pointsStr << "Najlepszy wynik na 60 sekund :" << best;
 	al_draw_text(this->font, al_map_rgb(255, 0, 0), screen_width, screen_height, ALLEGRO_ALIGN_CENTER, pointsStr.str().c_str());
 }

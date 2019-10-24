@@ -31,6 +31,5 @@ void Loader::readFromFile(string test[3])
 		}
 		plik.close();
 	}
-	for (int i = 0; i < 3; i++)
-		cout << test[i] << endl;
+
 }

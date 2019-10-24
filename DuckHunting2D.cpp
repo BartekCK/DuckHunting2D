@@ -24,7 +24,7 @@ int main()
 	sceneMenu->setBackground(path.BACKGROUND_MAIN_MENU);
 	sceneGame->setBackground(path.BACKGROUND_GAME);
 	sceneTime->setBackground(path.BACKGROUND_MAIN_MENU);
-	sceneRanking->setBackground(path.BACKGROUND_MAIN_MENU);
+	sceneRanking->setBackground(path.BACKGROUND_RANKING);
 
 	stage->setMenuScene(sceneMenu);
 	stage->setGameScene(sceneGame);
