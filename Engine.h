@@ -1,9 +1,9 @@
 #pragma once
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
-#include <iostream>
 #include <Windows.h>
 #include <vector>
+#include <iostream>
 
 using namespace std;
 

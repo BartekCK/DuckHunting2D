@@ -7,8 +7,8 @@
 #include"SuperDuck.h"
 #include"Text.h"
 #include"Music.h"
-#include <list>
 #include <vector>
+#include <sstream>
 
 constexpr auto COUNT_DUCKS = 4;
 constexpr auto COUNT__GROUND_DUCKS = 2;
@@ -23,7 +23,7 @@ class GameScene:public Scene
 
 
 public:
-	GameScene(int screenWidth, int screenHeight, const char* gameTitle, Stage* stage);
+	GameScene(Stage* stage);
 	~GameScene();
 	void showWindow() override;
 

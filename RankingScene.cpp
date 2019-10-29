@@ -3,8 +3,8 @@
 #include "Loader.h"
 #include "Hunter.h"
 
-RankingScene::RankingScene(int screenWidth, int screenHeight, const char* gameTitle, Stage* stage)
-	:Scene(screenWidth, screenHeight, gameTitle), stage(stage)
+RankingScene::RankingScene( Stage* stage)
+	:stage(stage)
 {
 	Path path;
 	this->button = new Button(path.BUTTON_NEW_GAME);

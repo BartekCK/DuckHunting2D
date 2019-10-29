@@ -1,7 +1,5 @@
 #include "GroundDuck.h"
 
-
-
 GroundDuck::GroundDuck(const char* backgroundBitmap, const int frames, const int levels)
 	:Duck(backgroundBitmap,frames,levels)
 {

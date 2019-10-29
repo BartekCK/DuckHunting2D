@@ -13,21 +13,17 @@ class Scene
 {
 protected:
 	ALLEGRO_BITMAP* background = NULL;
+	Engine* engine = Engine::getInstance();
 
-	
-
-	const char* gameTitle;
-	int screen_width;
-	int screen_height;
-	bool done = false;
+	static int screen_width;
+	static int screen_height;
 	static int gameTime;
 	static int tempGameTime;
 
-	Engine* engine = Engine::getInstance();
-
+	bool done = false;
 
 public:
-	Scene(int screenWidth, int screenHeight, const char* gameTitle);
+	Scene();
 	virtual ~Scene();
 
 	virtual void showWindow()=0;

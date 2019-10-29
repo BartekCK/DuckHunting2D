@@ -1,9 +1,6 @@
 #pragma once
 #include "Node.h"
 #include "Path.h"
-#include <ctime>
-#include <Windows.h>
-#include <stdlib.h>
 
 class Duck:public Node
 {

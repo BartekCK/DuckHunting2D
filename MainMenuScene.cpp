@@ -1,7 +1,7 @@
 #include "MainMenuScene.h"
 
-MainMenuScene::MainMenuScene(int screenWidth, int screenHeight, const char* gameTitle,Stage * stage)
-	:Scene(screenWidth, screenHeight, gameTitle),stage(stage)
+MainMenuScene::MainMenuScene(Stage * stage)
+	:stage(stage)
 {
 	Path path;
 	this->newGameButton = new Button(path.BUTTON_NEW_GAME);

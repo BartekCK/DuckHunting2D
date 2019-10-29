@@ -1,7 +1,7 @@
 #include "TimeScene.h"
 
-TimeScene::TimeScene(int screenWidth, int screenHeight, const char* gameTitle, Stage* stage)
-	:Scene(screenWidth, screenHeight, gameTitle), stage(stage)
+TimeScene::TimeScene(Stage* stage)
+	: stage(stage)
 {
 	Path path;
 	this->button[0] = new Button(path.BUTTON_15_S);

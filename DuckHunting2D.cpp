@@ -2,7 +2,6 @@
 //
 
 #include <iostream>
-#include <Windows.h>
 #include "Stage.h"
 #include "Path.h"
 #include "MainMenuScene.h"
@@ -17,10 +16,10 @@ int main()
 {
 	Path path;
 	Stage *stage = new Stage();
-	Scene* sceneMenu = new MainMenuScene(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), "Duck hunting", stage);
-	Scene* sceneGame = new GameScene(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), "Duck hunting", stage);
-	Scene* sceneTime = new TimeScene(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), "Duck hunting", stage);
-	Scene* sceneRanking = new RankingScene(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), "Duck hunting", stage);
+	Scene* sceneMenu = new MainMenuScene(stage);
+	Scene* sceneGame = new GameScene( stage);
+	Scene* sceneTime = new TimeScene( stage);
+	Scene* sceneRanking = new RankingScene( stage);
 	
 	sceneMenu->setBackground(path.BACKGROUND_MAIN_MENU);
 	sceneGame->setBackground(path.BACKGROUND_GAME);

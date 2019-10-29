@@ -1,6 +1,5 @@
 #pragma once
 #include"Stage.h"
-#include"Scene.h"
 #include"Button.h"
 #include"Path.h"
 class TimeScene :public Scene
@@ -10,7 +9,7 @@ class TimeScene :public Scene
 
 
 public:
-	TimeScene(int screenWidth, int screenHeight, const char* gameTitle, Stage* stage);
+	TimeScene(Stage* stage);
 	~TimeScene();
 	void showWindow() override;
 

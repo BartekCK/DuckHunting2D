@@ -1,8 +1,7 @@
 #include "GameScene.h"
-#include <sstream>
 
-GameScene::GameScene(int screenWidth, int screenHeight, const char* gameTitle, Stage* stage)
-	:Scene(screenWidth, screenHeight, gameTitle), stage(stage)
+GameScene::GameScene(Stage* stage)
+	: stage(stage)
 {
 	Path path;
 

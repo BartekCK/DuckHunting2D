@@ -1,8 +1,7 @@
 #pragma once
 
 #include"Crosshair.h"
-#include <allegro5/allegro.h>
-#include <allegro5/allegro_image.h>
+
 class Hunter
 {
 	Crosshair* cross = NULL;

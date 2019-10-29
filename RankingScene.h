@@ -12,7 +12,7 @@ class RankingScene:public Scene
 	void checkPoints();
 
 public:
-	RankingScene(int screenWidth, int screenHeight, const char* gameTitle, Stage* stage);
+	RankingScene( Stage* stage);
 	~RankingScene();
 	void showWindow() override;
 

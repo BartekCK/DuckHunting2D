@@ -2,12 +2,15 @@
 
 int Scene::gameTime = 0;
 int Scene::tempGameTime = 0;
+int Scene::screen_width = GetSystemMetrics(SM_CXSCREEN);
+int Scene::screen_height = GetSystemMetrics(SM_CYSCREEN);
 
 
 
-Scene::Scene(int screenWidth, int screenHeight, const char* gameTitle)
-	: screen_width(screenWidth), screen_height(screenHeight),gameTitle(gameTitle){
-	
+Scene::Scene()
+{
+
+
 	
 }
 
