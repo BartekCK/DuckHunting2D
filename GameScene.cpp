@@ -27,7 +27,7 @@ GameScene::GameScene(int screenWidth, int screenHeight, const char* gameTitle, S
 
 GameScene::~GameScene()
 {
-	for (int i = 0; i < duckList.size(); i++) {
+	for (size_t  i = 0; i < duckList.size(); i++) {
 		delete duckList[i];
 	}
 	
@@ -37,9 +37,6 @@ GameScene::~GameScene()
 
 void GameScene::showWindow()
 {
-
-	
-
 	Text text;
 	Music* music = new Music();
 	music->playMusic();
@@ -58,23 +55,10 @@ void GameScene::showWindow()
 
 		if (events.type == ALLEGRO_EVENT_TIMER) {
 
-			if (events.timer.source == engine->timmerVector[0]) {
-				for (int i = 0; i < duckList.size(); i++) {
-					duckList[i]->move();
-				}
+			for (size_t  i = 0; i < duckList.size(); i++) {
+				duckList[i]->move(events);
 			}
-			/*if (events.timer.source == engine->timmerVector[1]) {
-				
-				for (itg = groundDuckList.begin(); itg != groundDuckList.end(); ++itg) {
-					(*itg)->move();
-				}
-			}
-			if (events.timer.source == engine->timmerVector[2]) {
-				
-				for (its = superDuckList.begin(); its != superDuckList.end(); ++its) {
-					(*its)->move();
-				}
-			}*/
+			
 			if (events.timer.source == engine->timmerVector[3]) {
 
 				gameTime--;
@@ -83,8 +67,6 @@ void GameScene::showWindow()
 				}
 			}
 			
-
-
 			
 			move = true;
 		}
@@ -99,12 +81,13 @@ void GameScene::showWindow()
 				y = events.mouse.y;
 				
 
-				for (int i = 0; i < duckList.size(); i++) {
-					if (duckList[i]->checkShoot(x, y, i))
+				for (size_t  i = 0; i < duckList.size(); i++) {
+					if (duckList[i]->checkShoot(x, y)) {
 						hunter->addPoints(duckList[i]->getPoint());
+						music->shotSound();
+					}
 				}
 			
-				music->shotSound();
 				
 			}
 
@@ -122,11 +105,10 @@ void GameScene::showWindow()
 		if (move == true) {//ALL SHOW
 			move = false;
 			al_draw_bitmap(this->background, 0, 0, 0);
-			for (int i = 0; i < duckList.size(); i++) {
+			for (size_t  i = 0; i < duckList.size(); i++) {
 				duckList[i]->show();
 			}
 			hunter->getCross()->showCross(x, y);
-
 
 			text.showTime(gameTime);
 			text.showPoint(hunter->getPoints(),screen_width);

@@ -8,6 +8,6 @@ public:
 	SuperDuck(const char* backgroundBitmap, const int frames, const int levels);
 	~SuperDuck();
 
-	void move() override;
+	void move(ALLEGRO_EVENT events) override;
 };
 

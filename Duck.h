@@ -10,6 +10,8 @@ class Duck:public Node
 protected:
 
 	ALLEGRO_BITMAP* explosionBitmap = NULL;
+	Engine* engine = Engine::getInstance();
+
 	int staticBitmap = 0;
 	bool orientationX = true;
 	bool orientationY = true;
@@ -31,8 +33,8 @@ public:
 	Duck(const char* backgroundBitmap, const int frames, const int levels);
 	~Duck();
 	void show() override;
-	virtual void move();
-	bool checkShoot(float xShot, float yShot,int i);
+	virtual void move(ALLEGRO_EVENT events);
+	bool checkShoot(float xShot, float yShot);
 	int getPoint();
 };
 

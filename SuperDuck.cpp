@@ -21,23 +21,27 @@ SuperDuck::~SuperDuck()
 {
 }
 
-void SuperDuck::move()
+void SuperDuck::move(ALLEGRO_EVENT events)
 {
-	//MOVEMENT Y
 
-	if (yPosition == 0)
-		orientationY = true;
-	else if (yPosition == GetSystemMetrics(SM_CYSCREEN))
-		orientationY = false;
+	if (events.timer.source == engine->timmerVector[2]) {
+		//MOVEMENT Y
 
-	if (orientationY)
-		yPosition += this->moveSpeed;
-	else
-		yPosition -= this->moveSpeed;
+		if (yPosition == 0)
+			orientationY = true;
+		else if (yPosition == GetSystemMetrics(SM_CYSCREEN))
+			orientationY = false;
+
+		if (orientationY)
+			yPosition += this->moveSpeed;
+		else
+			yPosition -= this->moveSpeed;
 
 
-	//ANIMATION
-	this->shiftX += ((this->getBitmapWidth() / this->frames));
-	if (this->shiftX >= this->getBitmapWidth())
-		this->shiftX = 0;
+		//ANIMATION
+		this->shiftX += ((this->getBitmapWidth() / this->frames));
+		if (this->shiftX >= this->getBitmapWidth())
+			this->shiftX = 0;
+
+	}
 }

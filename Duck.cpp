@@ -41,44 +41,48 @@ void Duck::show()
 	}
 }
 
-void Duck::move()
+void Duck::move(ALLEGRO_EVENT events)
 {
-
-	//MOVEMENT X
-	if (xPosition == 0) {
-		orientationX = true;
-		this->shiftY = this->getBitmapHeight() / 2;
-	}
-	else if (xPosition == GetSystemMetrics(SM_CXSCREEN)) {
-		orientationX = false;
-		this->shiftY = 0;
-
-	}
-	if (orientationX)
-		xPosition += this->moveSpeed;
-	else
-		xPosition -= this->moveSpeed;
-
-	//MOVEMENT Y
-	if (yPosition == (startPositionY - 100))
-		orientationY = true;
-	else if (yPosition == (startPositionY + 100))
-		orientationY = false;
-
-	if (orientationY)
-		yPosition += this->moveSpeed;
-	else
-		yPosition -= this->moveSpeed;
+	if (events.timer.source == engine->timmerVector[0]) {
 	
+		//MOVEMENT X
+		if (xPosition == 0) {
+			orientationX = true;
+			this->shiftY = this->getBitmapHeight() / 2;
+		}
+		else if (xPosition == GetSystemMetrics(SM_CXSCREEN)) {
+			orientationX = false;
+			this->shiftY = 0;
+
+		}
+		if (orientationX)
+			xPosition += this->moveSpeed;
+		else
+			xPosition -= this->moveSpeed;
+
+		//MOVEMENT Y
+		if (yPosition == (startPositionY - 100))
+			orientationY = true;
+		else if (yPosition == (startPositionY + 100))
+			orientationY = false;
+
+		if (orientationY)
+			yPosition += this->moveSpeed;
+		else
+			yPosition -= this->moveSpeed;
+
+
+		//ANIMATION
+		this->shiftX += ((this->getBitmapWidth() / this->frames));
+		if (this->shiftX >= this->getBitmapWidth())
+			this->shiftX = 0;
 	
-	//ANIMATION
-	this->shiftX += ((this->getBitmapWidth() / this->frames));
-	if (this->shiftX >= this->getBitmapWidth())
-		this->shiftX = 0;
+	}
+	
 
 }
 
-bool Duck::checkShoot(float xShot, float yShot, int i)
+bool Duck::checkShoot(float xShot, float yShot)
 {
 	
 

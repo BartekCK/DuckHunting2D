@@ -17,26 +17,29 @@ GroundDuck::~GroundDuck()
 {
 }
 
-void GroundDuck::move()
+void GroundDuck::move(ALLEGRO_EVENT events)
 {
-	//MOVEMENT X
-	if (xPosition == 0-200) {
-		orientationX = true;
-		this->shiftY = this->getBitmapHeight() / 2;
-	}
-	else if (xPosition == GetSystemMetrics(SM_CXSCREEN)+200) {
-		orientationX = false;
-		this->shiftY = 0;
 
-	}
-	if (orientationX)
-		xPosition += this->moveSpeed;
-	else
-		xPosition -= this->moveSpeed;
+	if (events.timer.source == engine->timmerVector[1]) {
+		//MOVEMENT X
+		if (xPosition == 0 - 200) {
+			orientationX = true;
+			this->shiftY = this->getBitmapHeight() / 2;
+		}
+		else if (xPosition == GetSystemMetrics(SM_CXSCREEN) + 200) {
+			orientationX = false;
+			this->shiftY = 0;
 
-	//ANIMATION
-	this->shiftX += ((this->getBitmapWidth() / this->frames));
-	if (this->shiftX >= this->getBitmapWidth())
-		this->shiftX = 0;
+		}
+		if (orientationX)
+			xPosition += this->moveSpeed;
+		else
+			xPosition -= this->moveSpeed;
+
+		//ANIMATION
+		this->shiftX += ((this->getBitmapWidth() / this->frames));
+		if (this->shiftX >= this->getBitmapWidth())
+			this->shiftX = 0;
+	}
 
 }
