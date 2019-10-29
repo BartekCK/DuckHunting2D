@@ -21,12 +21,21 @@ GameScene::GameScene(int screenWidth, int screenHeight, const char* gameTitle, S
 		superDuckList.push_front(superDuck);
 	}
 
-
+	
 
 }
 
 GameScene::~GameScene()
 {
+	for (itd = duckList.begin(); itd != duckList.end(); ++itd) {
+		delete (*itd);
+	}
+	for (itg = groundDuckList.begin(); itg != groundDuckList.end(); ++itg) {
+		delete (*itg);
+	}
+	for (its = superDuckList.begin(); its != superDuckList.end(); ++its) {
+		delete (*its);
+	}
 
 	cout << "DESTRUKTOR Z GAME_SCENE" << endl;
 }
@@ -34,13 +43,9 @@ GameScene::~GameScene()
 void GameScene::showWindow()
 {
 
-	list<Duck*>::iterator itd;
-	list<GroundDuck*>::iterator itg;
-	list<SuperDuck*>::iterator its;
+	
 
 	Text text;
-	registerEvent();
-	startTimers();
 	Music* music = new Music();
 	music->playMusic();
 	tempGameTime = gameTime;
@@ -53,29 +58,29 @@ void GameScene::showWindow()
 	while (!this->done) {
 
 		ALLEGRO_EVENT events;
-		al_wait_for_event(event_queue, &events);
+		al_wait_for_event(engine->event_queue, &events);
 
 
 		if (events.type == ALLEGRO_EVENT_TIMER) {
 
-			if (events.timer.source == timer[0]) {
+			if (events.timer.source == engine->timmerVector[0]) {
 				for (itd = duckList.begin(); itd != duckList.end(); ++itd) {
 					(*itd)->move();
 				}
 			}
-			if (events.timer.source == timer[1]) {
+			if (events.timer.source == engine->timmerVector[1]) {
 				
 				for (itg = groundDuckList.begin(); itg != groundDuckList.end(); ++itg) {
 					(*itg)->move();
 				}
 			}
-			if (events.timer.source == timer[2]) {
+			if (events.timer.source == engine->timmerVector[2]) {
 				
 				for (its = superDuckList.begin(); its != superDuckList.end(); ++its) {
 					(*its)->move();
 				}
 			}
-			if (events.timer.source == timer[3]) {
+			if (events.timer.source == engine->timmerVector[3]) {
 
 				gameTime--;
 				if (gameTime == 0) {
@@ -151,10 +156,15 @@ void GameScene::showWindow()
 				
 	}
 
-	stopTimers();
 	delete hunter;
 	delete music;
-	deleteEvent();
 	this->stage->showRanking();
 	
 }
+
+
+
+
+
+
+

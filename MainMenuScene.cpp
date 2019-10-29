@@ -26,12 +26,11 @@ void MainMenuScene::showWindow()
 {
 	int x = 0, y = 0;
 	bool test = false;
-	registerEvent();
 
 	while (!this->done) {
 
 		ALLEGRO_EVENT events;
-		al_wait_for_event(event_queue, &events);
+		al_wait_for_event(engine->event_queue, &events);
 
 		
 		if (events.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) {
@@ -57,7 +56,6 @@ void MainMenuScene::showWindow()
 		al_flip_display();
 	}
 	
-	deleteEvent();
 	if (test == true) {
 		this->stage->showTimers();
 

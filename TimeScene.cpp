@@ -33,12 +33,11 @@ TimeScene::~TimeScene()
 void TimeScene::showWindow()
 {
 	int x = 0, y = 0;
-	registerEvent();
 
 	while (!this->done) {
 
 		ALLEGRO_EVENT events;
-		al_wait_for_event(event_queue, &events);
+		al_wait_for_event(engine->event_queue, &events);
 
 		if (events.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) {
 			if (events.mouse.button & 1) {
@@ -72,7 +71,6 @@ void TimeScene::showWindow()
 		al_flip_display();
 	}
 
-	deleteEvent();
 
 	this->stage->showGame();
 }

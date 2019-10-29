@@ -9,6 +9,7 @@
 #include "GameScene.h"
 #include "TimeScene.h"
 #include "RankingScene.h"
+#include "Engine.h"
 
 using namespace std;
 
@@ -33,6 +34,8 @@ int main()
 
 	stage->showMenu();
 
+	Engine* engine = Engine::getInstance();
+	delete engine;
 	delete stage;
 	return 0;
 }

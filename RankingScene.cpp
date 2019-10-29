@@ -26,14 +26,13 @@ void RankingScene::showWindow()
 	checkPoints();
 
 	int x = 0, y = 0;
-	registerEvent();
 
 	Text text;
 
 	while (!this->done) {
 
 		ALLEGRO_EVENT events;
-		al_wait_for_event(event_queue, &events);
+		al_wait_for_event(engine->event_queue, &events);
 
 
 		if (events.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) {
@@ -58,7 +57,6 @@ void RankingScene::showWindow()
 		al_flip_display();
 	}
 	tempGameTime = 0;
-	deleteEvent();
 	
 	this->stage->showMenu();
 	

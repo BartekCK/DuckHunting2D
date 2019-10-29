@@ -8,6 +8,7 @@
 #include"Text.h"
 #include"Music.h"
 #include <list>
+#include <vector>
 
 constexpr auto COUNT_DUCKS = 4;
 constexpr auto COUNT__GROUND_DUCKS = 2;
@@ -21,11 +22,15 @@ class GameScene:public Scene
 	list <GroundDuck*> groundDuckList;
 	list <SuperDuck*> superDuckList;
 
+	list<Duck*>::iterator itd;
+	list<GroundDuck*>::iterator itg;
+	list<SuperDuck*>::iterator its;
 
 public:
 	GameScene(int screenWidth, int screenHeight, const char* gameTitle, Stage* stage);
 	~GameScene();
 	void showWindow() override;
+
 
 
 };
