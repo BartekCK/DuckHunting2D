@@ -24,7 +24,6 @@ MainMenuScene::~MainMenuScene()
 
 void MainMenuScene::showWindow()
 {
-	displayRegister();
 	int x = 0, y = 0;
 	bool test = false;
 	registerEvent();
@@ -59,7 +58,6 @@ void MainMenuScene::showWindow()
 	}
 	
 	deleteEvent();
-	displayDelete();
 	if (test == true) {
 		this->stage->showTimers();
 

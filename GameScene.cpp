@@ -38,7 +38,6 @@ void GameScene::showWindow()
 	list<GroundDuck*>::iterator itg;
 	list<SuperDuck*>::iterator its;
 
-	displayRegister();
 	Text text;
 	registerEvent();
 	startTimers();
@@ -48,7 +47,7 @@ void GameScene::showWindow()
 	done = false;
 	bool move = true;
 	float x = 0, y = 0;
-	Hunter *hunter = new Hunter(this->display);
+	Hunter *hunter = new Hunter(engine->returnDisplay());
 	Hunter::points = 0;
 
 	while (!this->done) {
@@ -156,7 +155,6 @@ void GameScene::showWindow()
 	delete hunter;
 	delete music;
 	deleteEvent();
-	displayDelete();
 	this->stage->showRanking();
 	
 }

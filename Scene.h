@@ -5,13 +5,13 @@
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
 #include "Path.h"
+#include "Engine.h"
 
 using namespace std;
 
 class Scene
 {
 protected:
-	ALLEGRO_DISPLAY* display = NULL;
 	ALLEGRO_BITMAP* background = NULL;
 	ALLEGRO_EVENT_QUEUE* event_queue = NULL;
 
@@ -26,8 +26,8 @@ protected:
 	static int gameTime;
 	static int tempGameTime;
 
-	void displayRegister();
-	void displayDelete();
+	Engine* engine = Engine::getInstance();
+
 
 public:
 	Scene(int screenWidth, int screenHeight, const char* gameTitle);

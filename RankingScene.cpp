@@ -25,7 +25,6 @@ void RankingScene::showWindow()
 {
 	checkPoints();
 
-	displayRegister();
 	int x = 0, y = 0;
 	registerEvent();
 
@@ -60,7 +59,6 @@ void RankingScene::showWindow()
 	}
 	tempGameTime = 0;
 	deleteEvent();
-	displayDelete();
 	
 	this->stage->showMenu();
 	

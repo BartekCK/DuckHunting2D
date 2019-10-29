@@ -32,7 +32,6 @@ TimeScene::~TimeScene()
 
 void TimeScene::showWindow()
 {
-	displayRegister();
 	int x = 0, y = 0;
 	registerEvent();
 
@@ -74,7 +73,6 @@ void TimeScene::showWindow()
 	}
 
 	deleteEvent();
-	displayDelete();
 
 	this->stage->showGame();
 }
