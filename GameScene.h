@@ -18,13 +18,9 @@ class GameScene:public Scene
 {
 	Stage* stage = NULL;
 	
-	list <Duck*> duckList;
-	list <GroundDuck*> groundDuckList;
-	list <SuperDuck*> superDuckList;
+	vector <Duck*> duckList;
 
-	list<Duck*>::iterator itd;
-	list<GroundDuck*>::iterator itg;
-	list<SuperDuck*>::iterator its;
+
 
 public:
 	GameScene(int screenWidth, int screenHeight, const char* gameTitle, Stage* stage);

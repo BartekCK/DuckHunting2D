@@ -9,16 +9,16 @@ GameScene::GameScene(int screenWidth, int screenHeight, const char* gameTitle, S
 
 	for (int i = 0; i < COUNT_DUCKS; i++) {
 		Duck *duck = new Duck(path.NODE_DUCK, 20, 2);
-		duckList.push_front(duck);
+		duckList.push_back(duck);
 	}
 	for (int i = 0; i < COUNT__GROUND_DUCKS; i++) {
 		GroundDuck *groundDuck = new GroundDuck(path.GROUND_DUCK, 16, 2);
-		groundDuckList.push_front(groundDuck);
+		duckList.push_back(groundDuck);
 
 	}
 	for (int i = 0; i < COUNT_SUPER_DUCKS; i++) {
 		SuperDuck *superDuck = new SuperDuck(path.SUPER_DUCK, 14, 2);
-		superDuckList.push_front(superDuck);
+		duckList.push_back(superDuck);
 	}
 
 	
@@ -27,15 +27,10 @@ GameScene::GameScene(int screenWidth, int screenHeight, const char* gameTitle, S
 
 GameScene::~GameScene()
 {
-	for (itd = duckList.begin(); itd != duckList.end(); ++itd) {
-		delete (*itd);
+	for (int i = 0; i < duckList.size(); i++) {
+		delete duckList[i];
 	}
-	for (itg = groundDuckList.begin(); itg != groundDuckList.end(); ++itg) {
-		delete (*itg);
-	}
-	for (its = superDuckList.begin(); its != superDuckList.end(); ++its) {
-		delete (*its);
-	}
+	
 
 	cout << "DESTRUKTOR Z GAME_SCENE" << endl;
 }
@@ -64,11 +59,11 @@ void GameScene::showWindow()
 		if (events.type == ALLEGRO_EVENT_TIMER) {
 
 			if (events.timer.source == engine->timmerVector[0]) {
-				for (itd = duckList.begin(); itd != duckList.end(); ++itd) {
-					(*itd)->move();
+				for (int i = 0; i < duckList.size(); i++) {
+					duckList[i]->move();
 				}
 			}
-			if (events.timer.source == engine->timmerVector[1]) {
+			/*if (events.timer.source == engine->timmerVector[1]) {
 				
 				for (itg = groundDuckList.begin(); itg != groundDuckList.end(); ++itg) {
 					(*itg)->move();
@@ -79,7 +74,7 @@ void GameScene::showWindow()
 				for (its = superDuckList.begin(); its != superDuckList.end(); ++its) {
 					(*its)->move();
 				}
-			}
+			}*/
 			if (events.timer.source == engine->timmerVector[3]) {
 
 				gameTime--;
@@ -103,20 +98,11 @@ void GameScene::showWindow()
 				x = events.mouse.x;
 				y = events.mouse.y;
 				
-				for (itd = duckList.begin(); itd != duckList.end(); ++itd) {
-					if((*itd)->checkShoot(x, y, 0))
-						hunter->addPoints((*itd)->getPoint());
-				}
-				for (itg = groundDuckList.begin(); itg != groundDuckList.end(); ++itg) {
-					if ((*itg)->checkShoot(x, y, 0))
-						hunter->addPoints((*itg)->getPoint());
-				}
-				for (its = superDuckList.begin(); its != superDuckList.end(); ++its) {
-					if ((*its)->checkShoot(x, y, 0))
-						hunter->addPoints((*its)->getPoint());
-				}
 
-
+				for (int i = 0; i < duckList.size(); i++) {
+					if (duckList[i]->checkShoot(x, y, i))
+						hunter->addPoints(duckList[i]->getPoint());
+				}
 			
 				music->shotSound();
 				
@@ -136,14 +122,8 @@ void GameScene::showWindow()
 		if (move == true) {//ALL SHOW
 			move = false;
 			al_draw_bitmap(this->background, 0, 0, 0);
-			for (itd = duckList.begin(); itd != duckList.end(); ++itd) {
-				(*itd)->show();
-			}
-			for (itg = groundDuckList.begin(); itg != groundDuckList.end(); ++itg) {
-				(*itg)->show();
-			}
-			for (its = superDuckList.begin(); its != superDuckList.end(); ++its) {
-				(*its)->show();
+			for (int i = 0; i < duckList.size(); i++) {
+				duckList[i]->show();
 			}
 			hunter->getCross()->showCross(x, y);
 
