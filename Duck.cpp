@@ -31,9 +31,9 @@ Duck::~Duck()
 
 void Duck::show()
 {
-	if (staticBitmap)
+	if (staticBitmap!=0)
 	{
-		staticBitmap = false;
+		staticBitmap--;
 		al_draw_bitmap(explosionBitmap, xPosition, yPosition, 0);
 	}
 	else {
@@ -84,7 +84,7 @@ bool Duck::checkShoot(float xShot, float yShot, int i)
 
 	if (xShot > xPosition&& xShot < xPosition + bitmapWidth/frames &&
 		yShot > yPosition&& yShot < yPosition + bitmapHeight/levels) {
-		staticBitmap = true;
+		staticBitmap = 10;
 		return true;
 	}
 	else
