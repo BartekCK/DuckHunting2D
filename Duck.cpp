@@ -11,10 +11,13 @@ Duck::Duck(const char* backgroundBitmap, const int frames, const int levels) : N
 	startPositionY = temp;
 	temp += 161;
 
-	if (temp % 2 == 0)
+	if (temp % 2 == 0) {
 		xPosition = GetSystemMetrics(SM_CXSCREEN);
-	else
+	}
+	else {
 		xPosition = 0;
+	}
+		
 
 	yPosition = startPositionY;
 	explosionBitmap = al_load_bitmap(path.EXPLOSION);
@@ -46,13 +49,16 @@ void Duck::move(ALLEGRO_EVENT events)
 	if (events.timer.source == engine->timmerVector[0]) {
 	
 		//MOVEMENT X
-		if (xPosition == 0) {
+		if (xPosition <= 0) {
 			orientationX = true;
 			this->shiftY = this->getBitmapHeight() / 2;
+
+
 		}
-		else if (xPosition == GetSystemMetrics(SM_CXSCREEN)) {
+		else if (xPosition > GetSystemMetrics(SM_CXSCREEN)) {
 			orientationX = false;
 			this->shiftY = 0;
+
 
 		}
 		if (orientationX)

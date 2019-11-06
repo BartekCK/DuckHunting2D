@@ -20,11 +20,11 @@ void GroundDuck::move(ALLEGRO_EVENT events)
 
 	if (events.timer.source == engine->timmerVector[1]) {
 		//MOVEMENT X
-		if (xPosition == 0 - 200) {
+		if (xPosition <= 0 - 200) {
 			orientationX = true;
 			this->shiftY = this->getBitmapHeight() / 2;
 		}
-		else if (xPosition == GetSystemMetrics(SM_CXSCREEN) + 200) {
+		else if (xPosition >= GetSystemMetrics(SM_CXSCREEN) + 200) {
 			orientationX = false;
 			this->shiftY = 0;
 
@@ -33,7 +33,7 @@ void GroundDuck::move(ALLEGRO_EVENT events)
 			xPosition += this->moveSpeed;
 		else
 			xPosition -= this->moveSpeed;
-
+		
 		//ANIMATION
 		this->shiftX += ((this->getBitmapWidth() / this->frames));
 		if (this->shiftX >= this->getBitmapWidth())

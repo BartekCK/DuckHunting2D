@@ -27,9 +27,9 @@ void SuperDuck::move(ALLEGRO_EVENT events)
 	if (events.timer.source == engine->timmerVector[2]) {
 		//MOVEMENT Y
 
-		if (yPosition == 0)
+		if (yPosition <= 0)
 			orientationY = true;
-		else if (yPosition == GetSystemMetrics(SM_CYSCREEN))
+		else if (yPosition >= GetSystemMetrics(SM_CYSCREEN))
 			orientationY = false;
 
 		if (orientationY)
